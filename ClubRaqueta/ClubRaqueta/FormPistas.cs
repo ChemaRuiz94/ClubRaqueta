@@ -39,5 +39,14 @@ namespace ClubRaqueta
             this.pistasTableAdapter.Fill(this.dsClubRaqueta.pistas);
 
         }
+
+        private void btn_change_foto_Click(object sender, EventArgs e)
+        {
+            opfd_imagen_pistas.Filter = "image files |*.jpg;*.png;*.gif;*.ico;.*;";
+            if (opfd_imagen_pistas.ShowDialog() == DialogResult.OK)
+            {
+                fotoPictureBox.Image = Image.FromFile(opfd_imagen_pistas.FileName);
+            }
+        }
     }
 }
