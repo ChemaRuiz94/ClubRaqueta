@@ -87,7 +87,7 @@ namespace ClubRaqueta
             // 
             nombreLabel.AutoSize = true;
             nombreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nombreLabel.Location = new System.Drawing.Point(49, 125);
+            nombreLabel.Location = new System.Drawing.Point(48, 138);
             nombreLabel.Name = "nombreLabel";
             nombreLabel.Size = new System.Drawing.Size(69, 17);
             nombreLabel.TabIndex = 3;
@@ -97,7 +97,7 @@ namespace ClubRaqueta
             // 
             ubicacionLabel.AutoSize = true;
             ubicacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            ubicacionLabel.Location = new System.Drawing.Point(49, 168);
+            ubicacionLabel.Location = new System.Drawing.Point(48, 209);
             ubicacionLabel.Name = "ubicacionLabel";
             ubicacionLabel.Size = new System.Drawing.Size(84, 17);
             ubicacionLabel.TabIndex = 5;
@@ -107,7 +107,7 @@ namespace ClubRaqueta
             // 
             precioHoraLabel.AutoSize = true;
             precioHoraLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            precioHoraLabel.Location = new System.Drawing.Point(35, 309);
+            precioHoraLabel.Location = new System.Drawing.Point(34, 385);
             precioHoraLabel.Name = "precioHoraLabel";
             precioHoraLabel.Size = new System.Drawing.Size(99, 17);
             precioHoraLabel.TabIndex = 7;
@@ -127,7 +127,7 @@ namespace ClubRaqueta
             this.pistasBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
             this.pistasBindingNavigator.BindingSource = this.pistasBindingSource;
             this.pistasBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.pistasBindingNavigator.DeleteItem = null;
+            this.pistasBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
             this.pistasBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.pistasBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
@@ -177,7 +177,6 @@ namespace ClubRaqueta
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Eliminar";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -261,7 +260,7 @@ namespace ClubRaqueta
             // nombreTextBox
             // 
             this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pistasBindingSource, "nombre", true));
-            this.nombreTextBox.Location = new System.Drawing.Point(141, 122);
+            this.nombreTextBox.Location = new System.Drawing.Point(140, 135);
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(316, 22);
             this.nombreTextBox.TabIndex = 4;
@@ -269,7 +268,7 @@ namespace ClubRaqueta
             // ubicacionTextBox
             // 
             this.ubicacionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pistasBindingSource, "ubicacion", true));
-            this.ubicacionTextBox.Location = new System.Drawing.Point(141, 165);
+            this.ubicacionTextBox.Location = new System.Drawing.Point(140, 206);
             this.ubicacionTextBox.Multiline = true;
             this.ubicacionTextBox.Name = "ubicacionTextBox";
             this.ubicacionTextBox.Size = new System.Drawing.Size(316, 114);
@@ -278,7 +277,7 @@ namespace ClubRaqueta
             // precioHoraTextBox
             // 
             this.precioHoraTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pistasBindingSource, "precioHora", true));
-            this.precioHoraTextBox.Location = new System.Drawing.Point(141, 309);
+            this.precioHoraTextBox.Location = new System.Drawing.Point(140, 385);
             this.precioHoraTextBox.Name = "precioHoraTextBox";
             this.precioHoraTextBox.Size = new System.Drawing.Size(100, 22);
             this.precioHoraTextBox.TabIndex = 8;
@@ -286,7 +285,7 @@ namespace ClubRaqueta
             // fotoPictureBox
             // 
             this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.pistasBindingSource, "foto", true));
-            this.fotoPictureBox.Location = new System.Drawing.Point(504, 44);
+            this.fotoPictureBox.Location = new System.Drawing.Point(625, 68);
             this.fotoPictureBox.Name = "fotoPictureBox";
             this.fotoPictureBox.Size = new System.Drawing.Size(281, 282);
             this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -297,7 +296,7 @@ namespace ClubRaqueta
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(271, 309);
+            this.label1.Location = new System.Drawing.Point(270, 385);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 11;
@@ -306,7 +305,7 @@ namespace ClubRaqueta
             // btn_change_foto
             // 
             this.btn_change_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_change_foto.Location = new System.Drawing.Point(589, 349);
+            this.btn_change_foto.Location = new System.Drawing.Point(710, 373);
             this.btn_change_foto.Name = "btn_change_foto";
             this.btn_change_foto.Size = new System.Drawing.Size(134, 40);
             this.btn_change_foto.TabIndex = 13;
