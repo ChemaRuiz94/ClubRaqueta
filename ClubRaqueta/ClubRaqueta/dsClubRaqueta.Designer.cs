@@ -2006,11 +2006,16 @@ SELECT idPista, nombre, ubicacion, precioHora, foto FROM pistas WHERE (idPista =
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT idPista, nombre, ubicacion, precioHora, foto FROM dbo.pistas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM pistas\r\nWHERE  (idPista = @Param1)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idPista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2227,6 +2232,30 @@ SELECT idPista, nombre, ubicacion, precioHora, foto FROM pistas WHERE (idPista =
         public virtual int Update(string nombre, string ubicacion, global::System.Nullable<decimal> precioHora, byte[] foto, int Original_idPista, string Original_nombre, string Original_ubicacion, global::System.Nullable<decimal> Original_precioHora) {
             return this.Update(nombre, ubicacion, precioHora, foto, Original_idPista, Original_nombre, Original_ubicacion, Original_precioHora, Original_idPista);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQueryByIdPista(int Param1) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(Param1));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
     }
     
     /// <summary>
@@ -2411,11 +2440,17 @@ SELECT idReserva, fecha, hora, pista, socio, pagado, cantidad FROM reservas WHER
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT idReserva, fecha, hora, pista, socio, pagado, cantidad FROM dbo.reservas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT idReserva, fecha, hora, pista, socio, pagado, cantidad\r\nFROM     reservas\r" +
+                "\nWHERE  (pista = @Param1)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "pista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2437,6 +2472,32 @@ SELECT idReserva, fecha, hora, pista, socio, pagado, cantidad FROM reservas WHER
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsClubRaqueta.reservasDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsClubRaqueta.reservasDataTable dataTable = new dsClubRaqueta.reservasDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByReservaPista(dsClubRaqueta.reservasDataTable dataTable, int Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsClubRaqueta.reservasDataTable GetDataByReservaPista(int Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
             dsClubRaqueta.reservasDataTable dataTable = new dsClubRaqueta.reservasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

@@ -12,6 +12,10 @@ namespace ClubRaqueta
 {
     public partial class FormPistas : Form
     {
+
+        dsClubRaquetaTableAdapters.pistasTableAdapter tableAdapterPistas = new dsClubRaquetaTableAdapters.pistasTableAdapter();
+        dsClubRaquetaTableAdapters.reservasTableAdapter tableAdapterReservas = new dsClubRaquetaTableAdapters.reservasTableAdapter();
+
         public FormPistas()
         {
             InitializeComponent();
@@ -47,6 +51,34 @@ namespace ClubRaqueta
             {
                 fotoPictureBox.Image = Image.FromFile(opfd_imagen_pistas.FileName);
             }
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            DialogResult resp = new DialogResult();
+            resp = MessageBox.Show("Seguro que quiere eliminar esta pista?", "Eliminar pista", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (resp == DialogResult.OK) 
+            {
+                tableAdapterReservas.FillByReservaPista(dsClubRaqueta.reservas, int.Parse(idPistaLabel1.Text));
+
+                if (dsClubRaqueta.reservas.Count > 0)
+                {
+                    MessageBox.Show("Esta pista está reservada. No se puede eliminar", "No se puede eliminar Registro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else 
+                {
+                    tableAdapterPistas.DeleteQueryByIdPista(int.Parse(idPistaLabel1.Text));
+
+                    MessageBox.Show("Pista eliminada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    dsClubRaqueta.pistas.Clear();
+                    dsClubRaqueta.reservas.Clear();
+
+                    this.pistasTableAdapter.Fill(this.dsClubRaqueta.pistas);
+                }
+            }
+
         }
     }
 }
