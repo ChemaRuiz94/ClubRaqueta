@@ -49,5 +49,10 @@ namespace ClubRaqueta
                 frm_pistas.Show();
             }
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
