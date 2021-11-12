@@ -1,7 +1,7 @@
 ﻿
 namespace ClubRaqueta
 {
-    partial class tls_menu_salir
+    partial class frm_principal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -35,7 +35,7 @@ namespace ClubRaqueta
             this.tls_menu_pistas = new System.Windows.Forms.ToolStripMenuItem();
             this.tls_menu_reservas = new System.Windows.Forms.ToolStripMenuItem();
             this.tls_menu_informes = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tls_menu_salir = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@ namespace ClubRaqueta
             this.tls_menu_admin,
             this.tls_menu_reservas,
             this.tls_menu_informes,
-            this.toolStripMenuItem1});
+            this.tls_menu_salir});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
@@ -67,13 +67,13 @@ namespace ClubRaqueta
             // tls_menu_socios
             // 
             this.tls_menu_socios.Name = "tls_menu_socios";
-            this.tls_menu_socios.Size = new System.Drawing.Size(136, 26);
+            this.tls_menu_socios.Size = new System.Drawing.Size(224, 26);
             this.tls_menu_socios.Text = "Socios";
             // 
             // tls_menu_pistas
             // 
             this.tls_menu_pistas.Name = "tls_menu_pistas";
-            this.tls_menu_pistas.Size = new System.Drawing.Size(136, 26);
+            this.tls_menu_pistas.Size = new System.Drawing.Size(224, 26);
             this.tls_menu_pistas.Text = "Pistas";
             this.tls_menu_pistas.Click += new System.EventHandler(this.tls_menu_pistas_Click_1);
             // 
@@ -91,14 +91,15 @@ namespace ClubRaqueta
             this.tls_menu_informes.Size = new System.Drawing.Size(99, 24);
             this.tls_menu_informes.Text = "INFORMES";
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(65, 24);
-            this.toolStripMenuItem1.Text = "SALIR";
-            // 
             // tls_menu_salir
+            // 
+            this.tls_menu_salir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tls_menu_salir.Name = "tls_menu_salir";
+            this.tls_menu_salir.Size = new System.Drawing.Size(65, 24);
+            this.tls_menu_salir.Text = "SALIR";
+            this.tls_menu_salir.Click += new System.EventHandler(this.tls_menu_salir_Click);
+            // 
+            // frm_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,7 +108,7 @@ namespace ClubRaqueta
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
-            this.Name = "tls_menu_salir";
+            this.Name = "frm_principal";
             this.Text = "SALIR";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -124,7 +125,7 @@ namespace ClubRaqueta
         private System.Windows.Forms.ToolStripMenuItem tls_menu_pistas;
         private System.Windows.Forms.ToolStripMenuItem tls_menu_reservas;
         private System.Windows.Forms.ToolStripMenuItem tls_menu_informes;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tls_menu_salir;
     }
 }
 

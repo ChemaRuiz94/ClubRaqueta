@@ -16,7 +16,7 @@ namespace ClubRaqueta
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new tls_menu_salir());
+            Application.Run(new frm_principal());
         }
     }
 }

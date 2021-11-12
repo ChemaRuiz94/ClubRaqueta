@@ -8,4 +8,4 @@ D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\
 D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.exe
 D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.pdb
 D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.FormPistas.resources
-D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.tls_menu_salir.resources
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.frm_principal.resources

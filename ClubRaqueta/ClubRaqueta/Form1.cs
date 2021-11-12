@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ClubRaqueta
 {
-    public partial class tls_menu_salir : Form
+    public partial class frm_principal : Form
     {
-        public tls_menu_salir()
+        public frm_principal()
         {
             InitializeComponent();
         }
@@ -50,9 +50,15 @@ namespace ClubRaqueta
             }
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void tls_menu_salir_Click(object sender, EventArgs e)
         {
+            DialogResult resp = new DialogResult();
+            resp = MessageBox.Show("¿Seguro que desea cerrar la aplicación?", "SALIR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
+            if (resp == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
     }
 }
