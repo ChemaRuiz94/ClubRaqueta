@@ -349,7 +349,7 @@ namespace ClubRaqueta
             this.Controls.Add(fotoLabel);
             this.Controls.Add(this.fotoPictureBox);
             this.Controls.Add(this.pistasBindingNavigator);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormPistas";
             this.Text = "FormPistas";
             this.Load += new System.EventHandler(this.FormPistas_Load);
