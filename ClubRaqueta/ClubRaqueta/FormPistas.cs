@@ -16,5 +16,28 @@ namespace ClubRaqueta
         {
             InitializeComponent();
         }
+
+        private void pistasBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.pistasBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dsClubRaqueta);
+
+        }
+
+        private void pistasBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.pistasBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dsClubRaqueta);
+
+        }
+
+        private void FormPistas_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dsClubRaqueta.pistas' Puede moverla o quitarla según sea necesario.
+            this.pistasTableAdapter.Fill(this.dsClubRaqueta.pistas);
+
+        }
     }
 }
