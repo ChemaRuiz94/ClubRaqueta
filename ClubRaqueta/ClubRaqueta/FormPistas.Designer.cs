@@ -36,10 +36,6 @@ namespace ClubRaqueta
             System.Windows.Forms.Label precioHoraLabel;
             System.Windows.Forms.Label fotoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPistas));
-            this.dsClubRaqueta = new ClubRaqueta.dsClubRaqueta();
-            this.pistasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pistasTableAdapter = new ClubRaqueta.dsClubRaquetaTableAdapters.pistasTableAdapter();
-            this.tableAdapterManager = new ClubRaqueta.dsClubRaquetaTableAdapters.TableAdapterManager();
             this.pistasBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -61,16 +57,20 @@ namespace ClubRaqueta
             this.label1 = new System.Windows.Forms.Label();
             this.btn_change_foto = new System.Windows.Forms.Button();
             this.opfd_imagen_pistas = new System.Windows.Forms.OpenFileDialog();
+            this.pistasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsClubRaqueta = new ClubRaqueta.dsClubRaqueta();
+            this.pistasTableAdapter = new ClubRaqueta.dsClubRaquetaTableAdapters.pistasTableAdapter();
+            this.tableAdapterManager = new ClubRaqueta.dsClubRaquetaTableAdapters.TableAdapterManager();
             idPistaLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             ubicacionLabel = new System.Windows.Forms.Label();
             precioHoraLabel = new System.Windows.Forms.Label();
             fotoLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dsClubRaqueta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pistasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pistasBindingNavigator)).BeginInit();
             this.pistasBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pistasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsClubRaqueta)).BeginInit();
             this.SuspendLayout();
             // 
             // idPistaLabel
@@ -122,34 +122,12 @@ namespace ClubRaqueta
             fotoLabel.Size = new System.Drawing.Size(0, 17);
             fotoLabel.TabIndex = 9;
             // 
-            // dsClubRaqueta
-            // 
-            this.dsClubRaqueta.DataSetName = "dsClubRaqueta";
-            this.dsClubRaqueta.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pistasBindingSource
-            // 
-            this.pistasBindingSource.DataMember = "pistas";
-            this.pistasBindingSource.DataSource = this.dsClubRaqueta;
-            // 
-            // pistasTableAdapter
-            // 
-            this.pistasTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.pistasTableAdapter = this.pistasTableAdapter;
-            this.tableAdapterManager.reservasTableAdapter = null;
-            this.tableAdapterManager.sociosTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ClubRaqueta.dsClubRaquetaTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // pistasBindingNavigator
             // 
             this.pistasBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
             this.pistasBindingNavigator.BindingSource = this.pistasBindingSource;
             this.pistasBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.pistasBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.pistasBindingNavigator.DeleteItem = null;
             this.pistasBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.pistasBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
@@ -171,7 +149,7 @@ namespace ClubRaqueta
             this.pistasBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.pistasBindingNavigator.Name = "pistasBindingNavigator";
             this.pistasBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.pistasBindingNavigator.Size = new System.Drawing.Size(935, 31);
+            this.pistasBindingNavigator.Size = new System.Drawing.Size(935, 27);
             this.pistasBindingNavigator.TabIndex = 0;
             this.pistasBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -181,13 +159,13 @@ namespace ClubRaqueta
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
@@ -197,8 +175,9 @@ namespace ClubRaqueta
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -206,7 +185,7 @@ namespace ClubRaqueta
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
             // 
             // bindingNavigatorMovePreviousItem
@@ -215,18 +194,19 @@ namespace ClubRaqueta
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -235,7 +215,7 @@ namespace ClubRaqueta
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -243,7 +223,7 @@ namespace ClubRaqueta
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
             // 
             // bindingNavigatorMoveLastItem
@@ -252,20 +232,20 @@ namespace ClubRaqueta
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // pistasBindingNavigatorSaveItem
             // 
             this.pistasBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.pistasBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("pistasBindingNavigatorSaveItem.Image")));
             this.pistasBindingNavigatorSaveItem.Name = "pistasBindingNavigatorSaveItem";
-            this.pistasBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
+            this.pistasBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.pistasBindingNavigatorSaveItem.Text = "Guardar datos";
             this.pistasBindingNavigatorSaveItem.Click += new System.EventHandler(this.pistasBindingNavigatorSaveItem_Click_1);
             // 
@@ -338,6 +318,28 @@ namespace ClubRaqueta
             // 
             this.opfd_imagen_pistas.FileName = "openFileDialog1";
             // 
+            // pistasBindingSource
+            // 
+            this.pistasBindingSource.DataMember = "pistas";
+            this.pistasBindingSource.DataSource = this.dsClubRaqueta;
+            // 
+            // dsClubRaqueta
+            // 
+            this.dsClubRaqueta.DataSetName = "dsClubRaqueta";
+            this.dsClubRaqueta.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pistasTableAdapter
+            // 
+            this.pistasTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.pistasTableAdapter = this.pistasTableAdapter;
+            this.tableAdapterManager.reservasTableAdapter = null;
+            this.tableAdapterManager.sociosTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = ClubRaqueta.dsClubRaquetaTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // FormPistas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -360,12 +362,12 @@ namespace ClubRaqueta
             this.Name = "FormPistas";
             this.Text = "FormPistas";
             this.Load += new System.EventHandler(this.FormPistas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dsClubRaqueta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pistasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pistasBindingNavigator)).EndInit();
             this.pistasBindingNavigator.ResumeLayout(false);
             this.pistasBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pistasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsClubRaqueta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
