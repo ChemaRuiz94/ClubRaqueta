@@ -1,0 +1,11 @@
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\bin\Debug\ClubRaqueta.exe.config
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\bin\Debug\ClubRaqueta.exe
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\bin\Debug\ClubRaqueta.pdb
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.csproj.AssemblyReference.cache
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.Properties.Resources.resources
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.csproj.GenerateResource.cache
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.csproj.CoreCompileInputs.cache
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.exe
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.pdb
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.FormPistas.resources
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.frm_principal.resources
