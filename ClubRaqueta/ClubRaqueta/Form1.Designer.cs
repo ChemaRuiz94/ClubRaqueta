@@ -50,7 +50,7 @@ namespace ClubRaqueta
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(860, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(813, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -83,6 +83,7 @@ namespace ClubRaqueta
             this.tls_menu_reservas.Name = "tls_menu_reservas";
             this.tls_menu_reservas.Size = new System.Drawing.Size(95, 24);
             this.tls_menu_reservas.Text = "RESERVAS";
+            this.tls_menu_reservas.Click += new System.EventHandler(this.tls_menu_reservas_Click);
             // 
             // tls_menu_informes
             // 
@@ -103,7 +104,7 @@ namespace ClubRaqueta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 466);
+            this.ClientSize = new System.Drawing.Size(813, 651);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
