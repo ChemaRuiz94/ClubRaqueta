@@ -30,7 +30,7 @@ namespace ClubRaqueta
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmb_socios = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_dni_soc = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,7 +46,24 @@ namespace ClubRaqueta
             this.msk_txt_cuenta_corriente = new System.Windows.Forms.MaskedTextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.cmb_pistas = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.numUpDownInicio = new System.Windows.Forms.NumericUpDown();
+            this.numUpDownFin = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.picBoxPista = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbl_duracion = new System.Windows.Forms.Label();
+            this.btn_reservar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownInicio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownFin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPista)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,13 +75,13 @@ namespace ClubRaqueta
             this.label1.TabIndex = 0;
             this.label1.Text = "Elige al socio:";
             // 
-            // comboBox1
+            // cmb_socios
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(144, 20);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(209, 24);
-            this.comboBox1.TabIndex = 1;
+            this.cmb_socios.FormattingEnabled = true;
+            this.cmb_socios.Location = new System.Drawing.Point(144, 20);
+            this.cmb_socios.Name = "cmb_socios";
+            this.cmb_socios.Size = new System.Drawing.Size(209, 24);
+            this.cmb_socios.TabIndex = 1;
             // 
             // label2
             // 
@@ -97,7 +114,7 @@ namespace ClubRaqueta
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txt_nombre);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(28, 66);
+            this.panel1.Location = new System.Drawing.Point(12, 50);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(910, 189);
             this.panel1.TabIndex = 4;
@@ -200,20 +217,146 @@ namespace ClubRaqueta
             this.label8.TabIndex = 10;
             this.label8.Text = "Email:";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btn_reservar);
+            this.panel2.Controls.Add(this.lbl_duracion);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.picBoxPista);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.numUpDownFin);
+            this.panel2.Controls.Add(this.numUpDownInicio);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.cmb_pistas);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Location = new System.Drawing.Point(12, 256);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(910, 195);
+            this.panel2.TabIndex = 5;
+            // 
+            // cmb_pistas
+            // 
+            this.cmb_pistas.FormattingEnabled = true;
+            this.cmb_pistas.Location = new System.Drawing.Point(106, 28);
+            this.cmb_pistas.Name = "cmb_pistas";
+            this.cmb_pistas.Size = new System.Drawing.Size(269, 24);
+            this.cmb_pistas.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(26, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 17);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Pista:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(106, 78);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(269, 22);
+            this.dateTimePicker1.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(26, 83);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 17);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Fecha:";
+            // 
+            // numUpDownInicio
+            // 
+            this.numUpDownInicio.Location = new System.Drawing.Point(111, 132);
+            this.numUpDownInicio.Name = "numUpDownInicio";
+            this.numUpDownInicio.Size = new System.Drawing.Size(43, 22);
+            this.numUpDownInicio.TabIndex = 6;
+            // 
+            // numUpDownFin
+            // 
+            this.numUpDownFin.Location = new System.Drawing.Point(332, 132);
+            this.numUpDownFin.Name = "numUpDownFin";
+            this.numUpDownFin.Size = new System.Drawing.Size(43, 22);
+            this.numUpDownFin.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(26, 134);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Hora inicio:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(226, 137);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(62, 17);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Hora fin:";
+            // 
+            // picBoxPista
+            // 
+            this.picBoxPista.Location = new System.Drawing.Point(589, 12);
+            this.picBoxPista.Name = "picBoxPista";
+            this.picBoxPista.Size = new System.Drawing.Size(286, 139);
+            this.picBoxPista.TabIndex = 10;
+            this.picBoxPista.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(26, 165);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(78, 17);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Duracion:";
+            // 
+            // lbl_duracion
+            // 
+            this.lbl_duracion.AutoSize = true;
+            this.lbl_duracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_duracion.Location = new System.Drawing.Point(110, 165);
+            this.lbl_duracion.Name = "lbl_duracion";
+            this.lbl_duracion.Size = new System.Drawing.Size(0, 17);
+            this.lbl_duracion.TabIndex = 12;
+            // 
+            // btn_reservar
+            // 
+            this.btn_reservar.Location = new System.Drawing.Point(427, 132);
+            this.btn_reservar.Name = "btn_reservar";
+            this.btn_reservar.Size = new System.Drawing.Size(124, 41);
+            this.btn_reservar.TabIndex = 13;
+            this.btn_reservar.Text = "RESERVAR";
+            this.btn_reservar.UseVisualStyleBackColor = true;
+            // 
             // FormReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 682);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_dni_soc);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmb_socios);
             this.Controls.Add(this.label1);
             this.Name = "FormReservas";
             this.Text = "FormReservas";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownInicio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownFin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,7 +365,7 @@ namespace ClubRaqueta
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmb_socios;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_dni_soc;
         private System.Windows.Forms.Panel panel1;
@@ -238,5 +381,18 @@ namespace ClubRaqueta
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox msk_txt_cuenta_corriente;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox cmb_pistas;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown numUpDownFin;
+        private System.Windows.Forms.NumericUpDown numUpDownInicio;
+        private System.Windows.Forms.Label lbl_duracion;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox picBoxPista;
+        private System.Windows.Forms.Button btn_reservar;
     }
 }
