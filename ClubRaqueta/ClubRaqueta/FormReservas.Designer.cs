@@ -59,11 +59,16 @@ namespace ClubRaqueta
             this.label13 = new System.Windows.Forms.Label();
             this.lbl_duracion = new System.Windows.Forms.Label();
             this.btn_reservar = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dgv_reservas = new System.Windows.Forms.DataGridView();
+            this.btn_pagar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownInicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownFin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPista)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_reservas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -102,6 +107,7 @@ namespace ClubRaqueta
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel1.Controls.Add(this.txt_email);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
@@ -219,6 +225,7 @@ namespace ClubRaqueta
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel2.Controls.Add(this.btn_reservar);
             this.panel2.Controls.Add(this.lbl_duracion);
             this.panel2.Controls.Add(this.label13);
@@ -337,17 +344,48 @@ namespace ClubRaqueta
             this.btn_reservar.Text = "RESERVAR";
             this.btn_reservar.UseVisualStyleBackColor = true;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel3.Controls.Add(this.btn_pagar);
+            this.panel3.Controls.Add(this.dgv_reservas);
+            this.panel3.Location = new System.Drawing.Point(13, 468);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(909, 254);
+            this.panel3.TabIndex = 6;
+            // 
+            // dgv_reservas
+            // 
+            this.dgv_reservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_reservas.Location = new System.Drawing.Point(15, 12);
+            this.dgv_reservas.Name = "dgv_reservas";
+            this.dgv_reservas.RowHeadersWidth = 51;
+            this.dgv_reservas.RowTemplate.Height = 24;
+            this.dgv_reservas.Size = new System.Drawing.Size(879, 157);
+            this.dgv_reservas.TabIndex = 0;
+            // 
+            // btn_pagar
+            // 
+            this.btn_pagar.Location = new System.Drawing.Point(426, 191);
+            this.btn_pagar.Name = "btn_pagar";
+            this.btn_pagar.Size = new System.Drawing.Size(124, 48);
+            this.btn_pagar.TabIndex = 1;
+            this.btn_pagar.Text = "PAGAR";
+            this.btn_pagar.UseVisualStyleBackColor = true;
+            // 
             // FormReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 682);
+            this.ClientSize = new System.Drawing.Size(948, 757);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_dni_soc);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmb_socios);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormReservas";
             this.Text = "FormReservas";
             this.panel1.ResumeLayout(false);
@@ -357,6 +395,8 @@ namespace ClubRaqueta
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownInicio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownFin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPista)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_reservas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,5 +434,8 @@ namespace ClubRaqueta
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox picBoxPista;
         private System.Windows.Forms.Button btn_reservar;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridView dgv_reservas;
+        private System.Windows.Forms.Button btn_pagar;
     }
 }
