@@ -69,6 +69,7 @@ namespace ClubRaqueta
             this.tls_menu_socios.Name = "tls_menu_socios";
             this.tls_menu_socios.Size = new System.Drawing.Size(224, 26);
             this.tls_menu_socios.Text = "Socios";
+            this.tls_menu_socios.Click += new System.EventHandler(this.tls_menu_socios_Click);
             // 
             // tls_menu_pistas
             // 

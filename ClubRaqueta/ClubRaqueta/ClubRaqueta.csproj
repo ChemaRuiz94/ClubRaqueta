@@ -69,6 +69,12 @@
     <Compile Include="FormReservas.Designer.cs">
       <DependentUpon>FormReservas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSocios.Designer.cs">
+      <DependentUpon>FormSocios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -79,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReservas.resx">
       <DependentUpon>FormReservas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSocios.resx">
+      <DependentUpon>FormSocios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
