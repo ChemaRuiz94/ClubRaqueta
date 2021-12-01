@@ -46,8 +46,8 @@ namespace ClubRaqueta
             this.msk_txt_ccc = new System.Windows.Forms.MaskedTextBox();
             this.btn_mostrar = new System.Windows.Forms.Button();
             this.btn_insertar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_modificar = new System.Windows.Forms.Button();
+            this.btn_eliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_socios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@ namespace ClubRaqueta
             this.dgv_socios.RowHeadersWidth = 51;
             this.dgv_socios.RowTemplate.Height = 24;
             this.dgv_socios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_socios.Size = new System.Drawing.Size(945, 178);
+            this.dgv_socios.Size = new System.Drawing.Size(922, 174);
             this.dgv_socios.TabIndex = 0;
             // 
             // txt_dni
@@ -73,20 +73,20 @@ namespace ClubRaqueta
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(36, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 17);
+            this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "DNI:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(36, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.Size = new System.Drawing.Size(80, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Nombre:";
             // 
@@ -100,10 +100,10 @@ namespace ClubRaqueta
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(36, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 17);
+            this.label3.Size = new System.Drawing.Size(92, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Apellidos:";
             // 
@@ -117,10 +117,10 @@ namespace ClubRaqueta
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(36, 182);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 17);
+            this.label4.Size = new System.Drawing.Size(94, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "Domicilio:";
             // 
@@ -134,10 +134,10 @@ namespace ClubRaqueta
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(36, 237);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 17);
+            this.label5.Size = new System.Drawing.Size(62, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Email:";
             // 
@@ -151,20 +151,20 @@ namespace ClubRaqueta
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(36, 283);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 17);
+            this.label6.Size = new System.Drawing.Size(87, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Telefono:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(36, 326);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 17);
+            this.label7.Size = new System.Drawing.Size(54, 20);
             this.label7.TabIndex = 14;
             this.label7.Text = "CCC:";
             // 
@@ -186,7 +186,7 @@ namespace ClubRaqueta
             // 
             // btn_mostrar
             // 
-            this.btn_mostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_mostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_mostrar.ForeColor = System.Drawing.Color.Blue;
             this.btn_mostrar.Location = new System.Drawing.Point(351, 405);
             this.btn_mostrar.Name = "btn_mostrar";
@@ -194,39 +194,40 @@ namespace ClubRaqueta
             this.btn_mostrar.TabIndex = 17;
             this.btn_mostrar.Text = "MOSTRAR SOCIOS";
             this.btn_mostrar.UseVisualStyleBackColor = true;
+            this.btn_mostrar.Click += new System.EventHandler(this.btn_mostrar_Click);
             // 
             // btn_insertar
             // 
-            this.btn_insertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_insertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_insertar.ForeColor = System.Drawing.Color.Blue;
-            this.btn_insertar.Location = new System.Drawing.Point(697, 62);
+            this.btn_insertar.Location = new System.Drawing.Point(655, 25);
             this.btn_insertar.Name = "btn_insertar";
-            this.btn_insertar.Size = new System.Drawing.Size(172, 50);
+            this.btn_insertar.Size = new System.Drawing.Size(214, 68);
             this.btn_insertar.TabIndex = 18;
             this.btn_insertar.Text = "Insertar";
             this.btn_insertar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_modificar
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Blue;
-            this.button3.Location = new System.Drawing.Point(697, 151);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(172, 50);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modificar.ForeColor = System.Drawing.Color.Blue;
+            this.btn_modificar.Location = new System.Drawing.Point(655, 151);
+            this.btn_modificar.Name = "btn_modificar";
+            this.btn_modificar.Size = new System.Drawing.Size(214, 68);
+            this.btn_modificar.TabIndex = 19;
+            this.btn_modificar.Text = "Modificar";
+            this.btn_modificar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_eliminar
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Blue;
-            this.button4.Location = new System.Drawing.Point(697, 237);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(172, 50);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Eliminar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.ForeColor = System.Drawing.Color.Blue;
+            this.btn_eliminar.Location = new System.Drawing.Point(655, 278);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(214, 68);
+            this.btn_eliminar.TabIndex = 20;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = true;
             // 
             // FormSocios
             // 
@@ -234,8 +235,8 @@ namespace ClubRaqueta
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(975, 715);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn_eliminar);
+            this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_insertar);
             this.Controls.Add(this.btn_mostrar);
             this.Controls.Add(this.msk_txt_ccc);
@@ -282,7 +283,7 @@ namespace ClubRaqueta
         private System.Windows.Forms.MaskedTextBox msk_txt_ccc;
         private System.Windows.Forms.Button btn_mostrar;
         private System.Windows.Forms.Button btn_insertar;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_modificar;
+        private System.Windows.Forms.Button btn_eliminar;
     }
 }

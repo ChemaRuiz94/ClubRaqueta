@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="clubraquetaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="pistas">
+    <Key>
+      <PropertyRef Name="idPista" />
+    </Key>
+    <Property Name="idPista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ubicacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="precioHora" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="reservas" Relationship="Self.reservas_fk_pst" FromRole="pistas" ToRole="reservas" />
+  </EntityType>
+  <EntityType Name="reservas">
+    <Key>
+      <PropertyRef Name="idReserva" />
+    </Key>
+    <Property Name="idReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="pista" Type="Int32" Nullable="false" />
+    <Property Name="socio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pagado" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cantidad" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="pistas" Relationship="Self.reservas_fk_pst" FromRole="reservas" ToRole="pistas" />
+    <NavigationProperty Name="socios" Relationship="Self.reservas_fk_soc" FromRole="reservas" ToRole="socios" />
+  </EntityType>
+  <EntityType Name="socios">
+    <Key>
+      <PropertyRef Name="DNI" />
+    </Key>
+    <Property Name="DNI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="domicilio" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cuentaCorriente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="reservas" Relationship="Self.reservas_fk_soc" FromRole="socios" ToRole="reservas" />
+  </EntityType>
+  <Association Name="reservas_fk_pst">
+    <End Role="pistas" Type="Self.pistas" Multiplicity="1" />
+    <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pistas">
+        <PropertyRef Name="idPista" />
+      </Principal>
+      <Dependent Role="reservas">
+        <PropertyRef Name="pista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="reservas_fk_soc">
+    <End Role="socios" Type="Self.socios" Multiplicity="1" />
+    <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socios">
+        <PropertyRef Name="DNI" />
+      </Principal>
+      <Dependent Role="reservas">
+        <PropertyRef Name="socio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="clubraquetaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="pistas" EntityType="Self.pistas" />
+    <EntitySet Name="reservas" EntityType="Self.reservas" />
+    <EntitySet Name="socios" EntityType="Self.socios" />
+    <AssociationSet Name="reservas_fk_pst" Association="Self.reservas_fk_pst">
+      <End Role="pistas" EntitySet="pistas" />
+      <End Role="reservas" EntitySet="reservas" />
+    </AssociationSet>
+    <AssociationSet Name="reservas_fk_soc" Association="Self.reservas_fk_soc">
+      <End Role="socios" EntitySet="socios" />
+      <End Role="reservas" EntitySet="reservas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
