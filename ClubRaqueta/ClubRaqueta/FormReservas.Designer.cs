@@ -259,6 +259,7 @@ namespace ClubRaqueta
             this.btn_reservar.TabIndex = 13;
             this.btn_reservar.Text = "RESERVAR";
             this.btn_reservar.UseVisualStyleBackColor = true;
+            this.btn_reservar.Click += new System.EventHandler(this.btn_reservar_Click);
             // 
             // lbl_duracion
             // 
@@ -308,7 +309,17 @@ namespace ClubRaqueta
             // 
             // numUpDownMin
             // 
+            this.numUpDownMin.Increment = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             this.numUpDownMin.Location = new System.Drawing.Point(264, 135);
+            this.numUpDownMin.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             this.numUpDownMin.Name = "numUpDownMin";
             this.numUpDownMin.Size = new System.Drawing.Size(43, 22);
             this.numUpDownMin.TabIndex = 7;
@@ -316,9 +327,24 @@ namespace ClubRaqueta
             // numUpDownHora
             // 
             this.numUpDownHora.Location = new System.Drawing.Point(111, 132);
+            this.numUpDownHora.Maximum = new decimal(new int[] {
+            22,
+            0,
+            0,
+            0});
+            this.numUpDownHora.Minimum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
             this.numUpDownHora.Name = "numUpDownHora";
             this.numUpDownHora.Size = new System.Drawing.Size(43, 22);
             this.numUpDownHora.TabIndex = 6;
+            this.numUpDownHora.Value = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
             // 
             // label10
             // 
@@ -331,6 +357,7 @@ namespace ClubRaqueta
             // 
             // dateTimePicker_fecha
             // 
+            this.dateTimePicker_fecha.Checked = false;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(106, 78);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
             this.dateTimePicker_fecha.Size = new System.Drawing.Size(269, 22);
@@ -374,16 +401,21 @@ namespace ClubRaqueta
             this.btn_pagar.TabIndex = 1;
             this.btn_pagar.Text = "PAGAR";
             this.btn_pagar.UseVisualStyleBackColor = true;
+            this.btn_pagar.Click += new System.EventHandler(this.btn_pagar_Click);
             // 
             // dgv_reservas
             // 
             this.dgv_reservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_reservas.Location = new System.Drawing.Point(15, 12);
+            this.dgv_reservas.MultiSelect = false;
             this.dgv_reservas.Name = "dgv_reservas";
+            this.dgv_reservas.ReadOnly = true;
             this.dgv_reservas.RowHeadersWidth = 51;
             this.dgv_reservas.RowTemplate.Height = 24;
+            this.dgv_reservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_reservas.Size = new System.Drawing.Size(879, 157);
             this.dgv_reservas.TabIndex = 0;
+            this.dgv_reservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reservas_CellContentClick);
             // 
             // FormReservas
             // 
