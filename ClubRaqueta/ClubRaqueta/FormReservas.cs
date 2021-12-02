@@ -23,10 +23,9 @@ namespace ClubRaqueta
         ArrayList lista_id_pista = new ArrayList();
         ArrayList lista_dni_soc = new ArrayList();
         ArrayList lista_reservas = new ArrayList();
-        Boolean fech_correct = false;
-        Boolean soc_pista_pagada = false;
-        Boolean pista_disponible = false;
-        Boolean pagar_reserva_pendiente = false;
+        bool fech_correct = false;
+        bool soc_pista_pagada = false;
+        bool pista_disponible = false;
         int idPista = 0;
         TimeSpan hora;
 
@@ -108,9 +107,6 @@ namespace ClubRaqueta
                 if (cmb_pistas.SelectedIndex!=-1) 
                 {
                     btn_reservar.Enabled = true;
-                    btn_pagar.Enabled = true;
-                    //btn_pagar.Visible = true;
-                    //btn_reservar.Visible = true;
                     dateTimePicker_fecha.Enabled = true;
                     numUpDownHora.Enabled = true;
                     numUpDownMin.Enabled = true;
@@ -205,15 +201,24 @@ namespace ClubRaqueta
 
             tabReser.UpdateReservaPago("Si",fechaOrig,horaOrig,pist);
             cargar_reservas_socio();
-            btn_pagar.Enabled = false;
+            
 
         }
 
         private void btn_reservar_Click(object sender, EventArgs e)
         {
-            check_reservas_sin_pagar();
-            check_pista_disponible();
-            check_reservas();
+
+            if (!check_reservas_sin_pagar()) 
+            {
+                MessageBox.Show("El socio debe el pago de una pista anterior", "Error al reservar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else 
+            {
+                check_pista_disponible();
+                check_reservas();
+            }
+            
         }
 
         private void check_reservas()
@@ -241,20 +246,24 @@ namespace ClubRaqueta
 
 
         //COMPRUEBA SI EL SOCIO TIENE RESERVAS SIN PAGAR
-        private void check_reservas_sin_pagar()
+        private bool check_reservas_sin_pagar()
         {
+            string id = lbl_dni_soc.Text.ToString();
+            tabReser.FillByIdSocio(ds.reservas,id);
             for (int i = 0; i < ds.reservas.Count; i++)
             {
                 if (ds.reservas[i].pagado.Equals("No"))
                 {
-                    MessageBox.Show("El socio debe el pago de una pista anterior", "Error al reservar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     soc_pista_pagada = false;
+                    return false;
                 }
                 else
                 {
                     soc_pista_pagada = true;
                 }
             }
+            soc_pista_pagada = true;
+            return true;
         }
 
         //COMPRUEBA SI LA PISTA ESTA ALQUILADA ESE DIA
@@ -330,7 +339,7 @@ namespace ClubRaqueta
 
         private void dgv_reservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            String pagadoSeleccionada = dgv_reservas.SelectedRows[0].Cells[3].Value.ToString();
+            String pagadoSeleccionada = dgv_reservas.SelectedRows[0].Cells["Pagado"].Value.ToString();
             if (pagadoSeleccionada.Equals("No"))
             {
                 //pagar_reserva_pendiente = true;
@@ -342,6 +351,22 @@ namespace ClubRaqueta
                 //pagar_reserva_pendiente = false;
                 btn_pagar.Enabled = false;
                 //btn_pagar.Visible = false;
+            }
+        }
+
+        private void lbl_dni_soc_TextChanged(object sender, EventArgs e)
+        {
+            if (lbl_id_pista.Text.ToString() != "") 
+            {
+                btn_reservar.Enabled = true;
+            }
+        }
+
+        private void lbl_id_pista_TextChanged(object sender, EventArgs e)
+        {
+            if (lbl_dni_soc.Text.ToString() != "")
+            {
+                btn_reservar.Enabled = true;
             }
         }
     }

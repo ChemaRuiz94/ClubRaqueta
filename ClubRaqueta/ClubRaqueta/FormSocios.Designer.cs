@@ -48,6 +48,7 @@ namespace ClubRaqueta
             this.btn_insertar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_limpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_socios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -233,12 +234,25 @@ namespace ClubRaqueta
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
+            // btn_limpiar
+            // 
+            this.btn_limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpiar.ForeColor = System.Drawing.Color.Blue;
+            this.btn_limpiar.Location = new System.Drawing.Point(40, 405);
+            this.btn_limpiar.Name = "btn_limpiar";
+            this.btn_limpiar.Size = new System.Drawing.Size(107, 52);
+            this.btn_limpiar.TabIndex = 21;
+            this.btn_limpiar.Text = "Limpiar Campos";
+            this.btn_limpiar.UseVisualStyleBackColor = true;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            // 
             // FormSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(975, 715);
+            this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.btn_insertar);
@@ -258,7 +272,7 @@ namespace ClubRaqueta
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_dni);
             this.Controls.Add(this.dgv_socios);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormSocios";
             this.Text = "FormSocios";
             this.Load += new System.EventHandler(this.FormSocios_Load);
@@ -289,5 +303,6 @@ namespace ClubRaqueta
         private System.Windows.Forms.Button btn_insertar;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Button btn_limpiar;
     }
 }

@@ -261,5 +261,16 @@ namespace ClubRaqueta
 
             return false;
         }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            txt_dni.Text = "";
+            txt_nombre.Text = "";
+            txt_ape.Text = "";
+            txt_domic.Text = "";
+            msk_txt_telef.Text = "";
+            txt_email.Text = "";
+            msk_txt_ccc.Text = "";
+        }
     }
 }

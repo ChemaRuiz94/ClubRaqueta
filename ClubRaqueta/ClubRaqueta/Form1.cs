@@ -21,6 +21,9 @@ namespace ClubRaqueta
 
         private void tls_menu_pistas_Click_1(object sender, EventArgs e)
         {
+            FormPistas frm_pistas = new FormPistas();
+            frm_pistas.ShowDialog();
+            /*
             if (this.MdiChildren.Length > 0)
             {
                 if (this.MdiChildren[0].Name != "FormPistas")
@@ -48,6 +51,7 @@ namespace ClubRaqueta
                 frm_pistas.Dock = DockStyle.Fill;
                 frm_pistas.Show();
             }
+            */
         }
 
        
@@ -96,6 +100,12 @@ namespace ClubRaqueta
 
         private void tls_menu_socios_Click(object sender, EventArgs e)
         {
+            FormSocios frm_soc = new FormSocios();
+            frm_soc.ShowDialog();
+
+
+
+            /*
             if (this.MdiChildren.Length > 0)
             {
                 if (this.MdiChildren[0].Name != "FormSocios")
@@ -123,6 +133,7 @@ namespace ClubRaqueta
                 frm_soc.Dock = DockStyle.Fill;
                 frm_soc.Show();
             }
+            */
         }
     }
 }

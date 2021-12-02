@@ -7,7 +7,7 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="-10" ViewPortY="-47" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:pistas" ZOrder="2" X="725" Y="-7" Height="342" Width="493" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
-    <Shape ID="DesignTable:reservas" ZOrder="1" X="71" Y="69" Height="503" Width="600" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
+    <Shape ID="DesignTable:reservas" ZOrder="1" X="70" Y="69" Height="503" Width="600" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
     <Shape ID="DesignTable:socios" ZOrder="5" X="806" Y="418" Height="250" Width="379" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="191" />
   </Shapes>
   <Connectors>
@@ -22,7 +22,7 @@
           <Y>373</Y>
         </Point>
         <Point>
-          <X>671</X>
+          <X>670</X>
           <Y>373</Y>
         </Point>
       </RoutePoints>
@@ -34,11 +34,11 @@
           <Y>580</Y>
         </Point>
         <Point>
-          <X>278</X>
+          <X>277</X>
           <Y>580</Y>
         </Point>
         <Point>
-          <X>278</X>
+          <X>277</X>
           <Y>572</Y>
         </Point>
       </RoutePoints>

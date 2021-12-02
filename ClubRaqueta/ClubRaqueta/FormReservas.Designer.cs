@@ -47,6 +47,7 @@ namespace ClubRaqueta
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_id_pista = new System.Windows.Forms.Label();
             this.btn_reservar = new System.Windows.Forms.Button();
             this.lbl_duracion = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -62,7 +63,7 @@ namespace ClubRaqueta
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_pagar = new System.Windows.Forms.Button();
             this.dgv_reservas = new System.Windows.Forms.DataGridView();
-            this.lbl_id_pista = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPista)).BeginInit();
@@ -106,6 +107,7 @@ namespace ClubRaqueta
             this.lbl_dni_soc.Name = "lbl_dni_soc";
             this.lbl_dni_soc.Size = new System.Drawing.Size(0, 17);
             this.lbl_dni_soc.TabIndex = 3;
+            this.lbl_dni_soc.TextChanged += new System.EventHandler(this.lbl_dni_soc_TextChanged);
             // 
             // panel1
             // 
@@ -234,6 +236,7 @@ namespace ClubRaqueta
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.lbl_id_pista);
             this.panel2.Controls.Add(this.btn_reservar);
             this.panel2.Controls.Add(this.lbl_duracion);
@@ -251,6 +254,15 @@ namespace ClubRaqueta
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(910, 195);
             this.panel2.TabIndex = 5;
+            // 
+            // lbl_id_pista
+            // 
+            this.lbl_id_pista.AutoSize = true;
+            this.lbl_id_pista.Location = new System.Drawing.Point(396, 34);
+            this.lbl_id_pista.Name = "lbl_id_pista";
+            this.lbl_id_pista.Size = new System.Drawing.Size(0, 17);
+            this.lbl_id_pista.TabIndex = 14;
+            this.lbl_id_pista.TextChanged += new System.EventHandler(this.lbl_id_pista_TextChanged);
             // 
             // btn_reservar
             // 
@@ -311,6 +323,7 @@ namespace ClubRaqueta
             // 
             // numUpDownMin
             // 
+            this.numUpDownMin.Enabled = false;
             this.numUpDownMin.Increment = new decimal(new int[] {
             30,
             0,
@@ -328,6 +341,7 @@ namespace ClubRaqueta
             // 
             // numUpDownHora
             // 
+            this.numUpDownHora.Enabled = false;
             this.numUpDownHora.Location = new System.Drawing.Point(111, 132);
             this.numUpDownHora.Maximum = new decimal(new int[] {
             22,
@@ -360,6 +374,8 @@ namespace ClubRaqueta
             // dateTimePicker_fecha
             // 
             this.dateTimePicker_fecha.Checked = false;
+            this.dateTimePicker_fecha.Enabled = false;
+            this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(106, 78);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
             this.dateTimePicker_fecha.Size = new System.Drawing.Size(269, 22);
@@ -419,13 +435,15 @@ namespace ClubRaqueta
             this.dgv_reservas.TabIndex = 0;
             this.dgv_reservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reservas_CellContentClick);
             // 
-            // lbl_id_pista
+            // label14
             // 
-            this.lbl_id_pista.AutoSize = true;
-            this.lbl_id_pista.Location = new System.Drawing.Point(396, 34);
-            this.lbl_id_pista.Name = "lbl_id_pista";
-            this.lbl_id_pista.Size = new System.Drawing.Size(0, 17);
-            this.lbl_id_pista.TabIndex = 14;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(117, 165);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(152, 17);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "1 hora y 30 minutos";
             // 
             // FormReservas
             // 
@@ -493,5 +511,6 @@ namespace ClubRaqueta
         private System.Windows.Forms.DataGridView dgv_reservas;
         private System.Windows.Forms.Button btn_pagar;
         private System.Windows.Forms.Label lbl_id_pista;
+        private System.Windows.Forms.Label label14;
     }
 }
