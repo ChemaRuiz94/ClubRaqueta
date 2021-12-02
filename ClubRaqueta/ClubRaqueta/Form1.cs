@@ -50,6 +50,8 @@ namespace ClubRaqueta
             }
         }
 
+       
+
         private void tls_menu_salir_Click(object sender, EventArgs e)
         {
             DialogResult resp = new DialogResult();
@@ -58,6 +60,68 @@ namespace ClubRaqueta
             if (resp == DialogResult.OK)
             {
                 Application.Exit();
+            }
+        }
+
+        private void tls_menu_reservas_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                if (this.MdiChildren[0].Name != "FormReservas")
+                {
+                    DialogResult res = MessageBox.Show("¿Desea cerrar el formulario actual?", "¡ATENCION!", MessageBoxButtons.YesNo);
+
+                    if (res == DialogResult.Yes)
+                    {
+                        this.MdiChildren[0].Close();
+
+                        FormReservas frm_reservas = new FormReservas();
+                        frm_reservas.MdiParent = this;
+                        frm_reservas.FormBorderStyle = FormBorderStyle.None;
+                        frm_reservas.Dock = DockStyle.Fill;
+                        frm_reservas.Show();
+                    }
+                }
+            }
+            else
+            {
+
+                FormReservas frm_reservas = new FormReservas();
+                frm_reservas.MdiParent = this;
+                frm_reservas.FormBorderStyle = FormBorderStyle.None;
+                frm_reservas.Dock = DockStyle.Fill;
+                frm_reservas.Show();
+            }
+        }
+
+        private void tls_menu_socios_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                if (this.MdiChildren[0].Name != "FormSocios")
+                {
+                    DialogResult res = MessageBox.Show("¿Desea cerrar el formulario actual?", "¡ATENCION!", MessageBoxButtons.YesNo);
+
+                    if (res == DialogResult.Yes)
+                    {
+                        this.MdiChildren[0].Close();
+
+                        FormSocios frm_soc = new FormSocios();
+                        frm_soc.MdiParent = this;
+                        frm_soc.FormBorderStyle = FormBorderStyle.None;
+                        frm_soc.Dock = DockStyle.Fill;
+                        frm_soc.Show();
+                    }
+                }
+            }
+            else
+            {
+
+                FormSocios frm_soc = new FormSocios();
+                frm_soc.MdiParent = this;
+                frm_soc.FormBorderStyle = FormBorderStyle.None;
+                frm_soc.Dock = DockStyle.Fill;
+                frm_soc.Show();
             }
         }
     }

@@ -21,13 +21,6 @@ namespace ClubRaqueta
             InitializeComponent();
         }
 
-        private void pistasBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.pistasBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dsClubRaqueta);
-
-        }
 
         private void pistasBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
@@ -53,7 +46,9 @@ namespace ClubRaqueta
             }
         }
 
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+      
+
+        private void bindingNavigatorDeleteItem_Click_1(object sender, EventArgs e)
         {
 
         }

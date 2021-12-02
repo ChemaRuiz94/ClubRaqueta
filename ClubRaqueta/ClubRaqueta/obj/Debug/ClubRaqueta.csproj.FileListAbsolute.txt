@@ -9,3 +9,8 @@ D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\
 D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.pdb
 D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.FormPistas.resources
 D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.frm_principal.resources
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.FormReservas.resources
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.FormSocios.resources
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\bin\Debug\EntityFramework.dll
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\bin\Debug\EntityFramework.xml
+D:\Users\Chema\source\repos\ClubRaqueta\ClubRaqueta\ClubRaqueta\ClubRaqueta\obj\Debug\ClubRaqueta.csproj.CopyComplete

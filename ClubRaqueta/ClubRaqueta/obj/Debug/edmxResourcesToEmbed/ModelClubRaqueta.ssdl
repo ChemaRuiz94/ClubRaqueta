@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="clubraquetaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="pistas">
+    <Key>
+      <PropertyRef Name="idPista" />
+    </Key>
+    <Property Name="idPista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ubicacion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="precioHora" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="foto" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="reservas">
+    <Key>
+      <PropertyRef Name="idReserva" />
+    </Key>
+    <Property Name="idReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="pista" Type="int" Nullable="false" />
+    <Property Name="socio" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="pagado" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="cantidad" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="socios">
+    <Key>
+      <PropertyRef Name="DNI" />
+    </Key>
+    <Property Name="DNI" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="apellidos" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="domicilio" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="cuentaCorriente" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="reservas_fk_pst">
+    <End Role="pistas" Type="Self.pistas" Multiplicity="1" />
+    <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pistas">
+        <PropertyRef Name="idPista" />
+      </Principal>
+      <Dependent Role="reservas">
+        <PropertyRef Name="pista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="reservas_fk_soc">
+    <End Role="socios" Type="Self.socios" Multiplicity="1" />
+    <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socios">
+        <PropertyRef Name="DNI" />
+      </Principal>
+      <Dependent Role="reservas">
+        <PropertyRef Name="socio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="clubraquetaModelStoreContainer">
+    <EntitySet Name="pistas" EntityType="Self.pistas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reservas" EntityType="Self.reservas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="socios" EntityType="Self.socios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="reservas_fk_pst" Association="Self.reservas_fk_pst">
+      <End Role="pistas" EntitySet="pistas" />
+      <End Role="reservas" EntitySet="reservas" />
+    </AssociationSet>
+    <AssociationSet Name="reservas_fk_soc" Association="Self.reservas_fk_soc">
+      <End Role="socios" EntitySet="socios" />
+      <End Role="reservas" EntitySet="reservas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
