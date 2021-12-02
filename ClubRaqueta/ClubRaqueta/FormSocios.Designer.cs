@@ -60,8 +60,9 @@ namespace ClubRaqueta
             this.dgv_socios.RowHeadersWidth = 51;
             this.dgv_socios.RowTemplate.Height = 24;
             this.dgv_socios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_socios.Size = new System.Drawing.Size(922, 174);
+            this.dgv_socios.Size = new System.Drawing.Size(878, 173);
             this.dgv_socios.TabIndex = 0;
+            this.dgv_socios.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_socios_CellContentDoubleClick);
             // 
             // txt_dni
             // 
@@ -206,6 +207,7 @@ namespace ClubRaqueta
             this.btn_insertar.TabIndex = 18;
             this.btn_insertar.Text = "Insertar";
             this.btn_insertar.UseVisualStyleBackColor = true;
+            this.btn_insertar.Click += new System.EventHandler(this.btn_insertar_Click);
             // 
             // btn_modificar
             // 
@@ -217,6 +219,7 @@ namespace ClubRaqueta
             this.btn_modificar.TabIndex = 19;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_eliminar
             // 
@@ -228,6 +231,7 @@ namespace ClubRaqueta
             this.btn_eliminar.TabIndex = 20;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // FormSocios
             // 

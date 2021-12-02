@@ -192,6 +192,7 @@ namespace ClubRaqueta
 
         private void check_pagar_reserva()
         {
+            //FALLO SI EL SOCIO NO TIENE NI UNA SOLA RESERVA
 
             //PAGAR AQUI
             int pist = int.Parse(dgv_reservas.SelectedRows[0].Cells["Pista"].Value.ToString());
