@@ -22,15 +22,6 @@ namespace ClubRaqueta
             InitializeComponent();
         }
 
-
-        private void pistasBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.pistasBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(dsClubRaqueta);
-
-        }
-
         private void FormPistas_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dsClubRaqueta.pistas' Puede moverla o quitarla según sea necesario.
@@ -38,16 +29,25 @@ namespace ClubRaqueta
 
         }
 
-        private void btn_change_foto_Click(object sender, EventArgs e)
+        private void pistasBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
-            opfd_imagen_pistas.Filter = "image files |*.jpg;*.png;*.gif;*.ico;.*;";
-            if (opfd_imagen_pistas.ShowDialog() == DialogResult.OK)
+            if (chekc_txt_campos()) 
             {
-                fotoPictureBox.Image = Image.FromFile(opfd_imagen_pistas.FileName);
+                this.Validate();
+                this.pistasBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(dsClubRaqueta);
+
+                bindingNavigatorMoveFirstItem.Enabled = true;
+                bindingNavigatorMovePreviousItem.Enabled = true;
             }
+                       
         }
-
-
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            bindingNavigatorMoveFirstItem.Enabled = false;
+            bindingNavigatorMovePreviousItem.Enabled = false;
+        }
+             
 
         private void bindingNavigatorDeleteItem_Click_1(object sender, EventArgs e)
         {
@@ -67,6 +67,9 @@ namespace ClubRaqueta
             {
                 MessageBox.Show("No se puede eliminar una pista reservada");
             }
+
+            bindingNavigatorMoveFirstItem.Enabled = true;
+            bindingNavigatorMovePreviousItem.Enabled = true;
         }
 
         private bool checck_pista_reservada(int id)
@@ -80,5 +83,39 @@ namespace ClubRaqueta
             }
             return false;
         }
+
+        public bool chekc_txt_campos() 
+        {
+            if (nombreTextBox.Text.ToString().Trim().Equals(""))
+            {
+                MessageBox.Show("El nombre está incompleto");
+                return false;
+            }
+            if (ubicacionTextBox.Text.ToString().Trim().Equals(""))
+            {
+                MessageBox.Show("Ubicacioa está incompleto");
+                return false;
+            }
+            if (precioHoraTextBox.Text.ToString().Trim().Equals(""))
+            {
+                MessageBox.Show("Introduce el precio por hora");
+                return false;
+            }
+            return true;
+        }
+
+
+
+        private void btn_change_foto_Click(object sender, EventArgs e)
+        {
+            opfd_imagen_pistas.Filter = "image files |*.jpg;*.png;*.gif;*.ico;.*;";
+            if (opfd_imagen_pistas.ShowDialog() == DialogResult.OK)
+            {
+                fotoPictureBox.Image = Image.FromFile(opfd_imagen_pistas.FileName);
+            }
+        }
+
+
+
     }
 }
