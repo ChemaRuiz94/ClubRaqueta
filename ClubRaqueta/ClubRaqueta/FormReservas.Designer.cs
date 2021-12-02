@@ -62,6 +62,7 @@ namespace ClubRaqueta
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_pagar = new System.Windows.Forms.Button();
             this.dgv_reservas = new System.Windows.Forms.DataGridView();
+            this.lbl_id_pista = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPista)).BeginInit();
@@ -233,6 +234,7 @@ namespace ClubRaqueta
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel2.Controls.Add(this.lbl_id_pista);
             this.panel2.Controls.Add(this.btn_reservar);
             this.panel2.Controls.Add(this.lbl_duracion);
             this.panel2.Controls.Add(this.label13);
@@ -417,6 +419,14 @@ namespace ClubRaqueta
             this.dgv_reservas.TabIndex = 0;
             this.dgv_reservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reservas_CellContentClick);
             // 
+            // lbl_id_pista
+            // 
+            this.lbl_id_pista.AutoSize = true;
+            this.lbl_id_pista.Location = new System.Drawing.Point(396, 34);
+            this.lbl_id_pista.Name = "lbl_id_pista";
+            this.lbl_id_pista.Size = new System.Drawing.Size(0, 17);
+            this.lbl_id_pista.TabIndex = 14;
+            // 
             // FormReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -482,5 +492,6 @@ namespace ClubRaqueta
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgv_reservas;
         private System.Windows.Forms.Button btn_pagar;
+        private System.Windows.Forms.Label lbl_id_pista;
     }
 }

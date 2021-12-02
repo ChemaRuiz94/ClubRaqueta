@@ -95,11 +95,13 @@ namespace ClubRaqueta
             {
                 cmb_pistas.Items.Add(ds.pistas[i].nombre);
                 lista_id_pista.Add(ds.pistas[i].idPista);
+                
             }
         }
 
         private void cmb_pistas_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lbl_id_pista.Text = (lista_id_pista[cmb_pistas.SelectedIndex].ToString());
             cargar_imagen_pista();
             if (!string.IsNullOrEmpty(txt_nombre.Text))
             {
@@ -112,6 +114,8 @@ namespace ClubRaqueta
                     dateTimePicker_fecha.Enabled = true;
                     numUpDownHora.Enabled = true;
                     numUpDownMin.Enabled = true;
+
+                    
                 }
             }
         }
@@ -192,6 +196,7 @@ namespace ClubRaqueta
 
         private void check_pagar_reserva()
         {
+            //FALLO SI EL SOCIO NO TIENE NI UNA SOLA RESERVA
 
             //PAGAR AQUI
             int pist = int.Parse(dgv_reservas.SelectedRows[0].Cells["Pista"].Value.ToString());
