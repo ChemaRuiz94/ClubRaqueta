@@ -67,14 +67,14 @@ namespace ClubRaqueta
             // tls_menu_socios
             // 
             this.tls_menu_socios.Name = "tls_menu_socios";
-            this.tls_menu_socios.Size = new System.Drawing.Size(224, 26);
+            this.tls_menu_socios.Size = new System.Drawing.Size(136, 26);
             this.tls_menu_socios.Text = "Socios";
             this.tls_menu_socios.Click += new System.EventHandler(this.tls_menu_socios_Click);
             // 
             // tls_menu_pistas
             // 
             this.tls_menu_pistas.Name = "tls_menu_pistas";
-            this.tls_menu_pistas.Size = new System.Drawing.Size(224, 26);
+            this.tls_menu_pistas.Size = new System.Drawing.Size(136, 26);
             this.tls_menu_pistas.Text = "Pistas";
             this.tls_menu_pistas.Click += new System.EventHandler(this.tls_menu_pistas_Click_1);
             // 
@@ -84,7 +84,6 @@ namespace ClubRaqueta
             this.tls_menu_reservas.Name = "tls_menu_reservas";
             this.tls_menu_reservas.Size = new System.Drawing.Size(95, 24);
             this.tls_menu_reservas.Text = "RESERVAS";
-            this.tls_menu_reservas.Click += new System.EventHandler(this.tls_menu_reservas_Click);
             // 
             // tls_menu_informes
             // 
@@ -112,6 +111,7 @@ namespace ClubRaqueta
             this.IsMdiContainer = true;
             this.Name = "frm_principal";
             this.Text = "SALIR";
+            this.Load += new System.EventHandler(this.frm_principal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
