@@ -47,6 +47,7 @@ namespace ClubRaqueta
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.lbl_id_pista = new System.Windows.Forms.Label();
             this.btn_reservar = new System.Windows.Forms.Button();
             this.lbl_duracion = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@ namespace ClubRaqueta
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_pagar = new System.Windows.Forms.Button();
             this.dgv_reservas = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
+            this.btn_refrescar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPista)).BeginInit();
@@ -255,6 +256,16 @@ namespace ClubRaqueta
             this.panel2.Size = new System.Drawing.Size(910, 195);
             this.panel2.TabIndex = 5;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(117, 165);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(152, 17);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "1 hora y 30 minutos";
+            // 
             // lbl_id_pista
             // 
             this.lbl_id_pista.AutoSize = true;
@@ -323,7 +334,6 @@ namespace ClubRaqueta
             // 
             // numUpDownMin
             // 
-            this.numUpDownMin.Enabled = false;
             this.numUpDownMin.Increment = new decimal(new int[] {
             30,
             0,
@@ -341,7 +351,6 @@ namespace ClubRaqueta
             // 
             // numUpDownHora
             // 
-            this.numUpDownHora.Enabled = false;
             this.numUpDownHora.Location = new System.Drawing.Point(111, 132);
             this.numUpDownHora.Maximum = new decimal(new int[] {
             22,
@@ -374,13 +383,11 @@ namespace ClubRaqueta
             // dateTimePicker_fecha
             // 
             this.dateTimePicker_fecha.Checked = false;
-            this.dateTimePicker_fecha.Enabled = false;
             this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(106, 78);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
             this.dateTimePicker_fecha.Size = new System.Drawing.Size(269, 22);
             this.dateTimePicker_fecha.TabIndex = 4;
-            this.dateTimePicker_fecha.ValueChanged += new System.EventHandler(this.dateTimePicker_fecha_ValueChanged);
             // 
             // cmb_pistas
             // 
@@ -403,6 +410,7 @@ namespace ClubRaqueta
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel3.Controls.Add(this.btn_refrescar);
             this.panel3.Controls.Add(this.btn_pagar);
             this.panel3.Controls.Add(this.dgv_reservas);
             this.panel3.Location = new System.Drawing.Point(13, 468);
@@ -435,15 +443,15 @@ namespace ClubRaqueta
             this.dgv_reservas.TabIndex = 0;
             this.dgv_reservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reservas_CellContentClick);
             // 
-            // label14
+            // btn_refrescar
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(117, 165);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(152, 17);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "1 hora y 30 minutos";
+            this.btn_refrescar.Location = new System.Drawing.Point(15, 191);
+            this.btn_refrescar.Name = "btn_refrescar";
+            this.btn_refrescar.Size = new System.Drawing.Size(125, 45);
+            this.btn_refrescar.TabIndex = 2;
+            this.btn_refrescar.Text = "REFRESCAR DATOS";
+            this.btn_refrescar.UseVisualStyleBackColor = true;
+            this.btn_refrescar.Click += new System.EventHandler(this.btn_refrescar_Click);
             // 
             // FormReservas
             // 
@@ -512,5 +520,6 @@ namespace ClubRaqueta
         private System.Windows.Forms.Button btn_pagar;
         private System.Windows.Forms.Label lbl_id_pista;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btn_refrescar;
     }
 }

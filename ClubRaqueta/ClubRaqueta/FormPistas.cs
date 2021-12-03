@@ -29,6 +29,11 @@ namespace ClubRaqueta
 
         }
 
+        /*
+         * Modificacion del btnSaveItem del BindingNavigator
+         * Una vez guardada la reserva, vuelve a habilitar los botones
+         * de moveFirsItem y MovePreviousItem
+         */
         private void pistasBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
             if (chekc_txt_campos()) 
@@ -37,18 +42,32 @@ namespace ClubRaqueta
                 this.pistasBindingSource.EndEdit();
                 this.tableAdapterManager.UpdateAll(dsClubRaqueta);
 
+                MessageBox.Show("Pista guardada correctamente");
                 bindingNavigatorMoveFirstItem.Enabled = true;
                 bindingNavigatorMovePreviousItem.Enabled = true;
             }
                        
         }
+
+        /*
+         * Modificacion del btnSaveItem del BindingNavigator
+         * Deshabilitar los botones de moveFirsItem y MovePreviousItem 
+         * para evitar un Fallo del programa
+         * si se pulsan mientras se esta añadiendo una nueva pista
+         * 
+         */
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             bindingNavigatorMoveFirstItem.Enabled = false;
             bindingNavigatorMovePreviousItem.Enabled = false;
         }
-             
 
+
+        /*
+         * Modificacion del btnDeleteItema del BindingNavigator
+         * Comprueba si la pista esta reservada
+         * Pide confirmacion antes de eliminar
+         */
         private void bindingNavigatorDeleteItem_Click_1(object sender, EventArgs e)
         {
             int id = int.Parse(idPistaLabel1.Text.ToString());
@@ -72,6 +91,10 @@ namespace ClubRaqueta
             bindingNavigatorMovePreviousItem.Enabled = true;
         }
 
+        /*
+         * Comprueba si la pista tiene reservas
+         * devuelve true si tiene alguna reserva
+         */
         private bool checck_pista_reservada(int id)
         {
 
@@ -84,6 +107,9 @@ namespace ClubRaqueta
             return false;
         }
 
+        /*
+         * Comprueba si los campos estan vacios
+         */
         public bool chekc_txt_campos() 
         {
             if (nombreTextBox.Text.ToString().Trim().Equals(""))
@@ -105,7 +131,9 @@ namespace ClubRaqueta
         }
 
 
-
+        /*
+         * Boton para cambiar la foto de la pista
+         */
         private void btn_change_foto_Click(object sender, EventArgs e)
         {
             opfd_imagen_pistas.Filter = "image files |*.jpg;*.png;*.gif;*.ico;.*;";

@@ -1960,9 +1960,9 @@ namespace ClubRaqueta.dsClubRaquetaTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[pistas] WHERE (([idPista] = @Original_idPista) AND ([nombre] =" +
-                " @Original_nombre) AND ([ubicacion] = @Original_ubicacion) AND ((@IsNull_precioH" +
-                "ora = 1 AND [precioHora] IS NULL) OR ([precioHora] = @Original_precioHora)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [pistas] WHERE (([idPista] = @Original_idPista) AND ([nombre] = @Orig" +
+                "inal_nombre) AND ([ubicacion] = @Original_ubicacion) AND ((@IsNull_precioHora = " +
+                "1 AND [precioHora] IS NULL) OR ([precioHora] = @Original_precioHora)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idPista", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idPista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1971,9 +1971,9 @@ namespace ClubRaqueta.dsClubRaquetaTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_precioHora", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "precioHora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[pistas] ([nombre], [ubicacion], [precioHora], [foto]) VALUES (" +
-                "@nombre, @ubicacion, @precioHora, @foto);\r\nSELECT idPista, nombre, ubicacion, pr" +
-                "ecioHora, foto FROM pistas WHERE (idPista = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [pistas] ([nombre], [ubicacion], [precioHora], [foto]) VALUES (@nombr" +
+                "e, @ubicacion, @precioHora, @foto);\r\nSELECT idPista, nombre, ubicacion, precioHo" +
+                "ra, foto FROM pistas WHERE (idPista = SCOPE_IDENTITY()) ORDER BY nombre";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ubicacion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ubicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1981,8 +1981,8 @@ namespace ClubRaqueta.dsClubRaquetaTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@foto", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "foto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[pistas] SET [nombre] = @nombre, [ubicacion] = @ubicacion, [precioHora] = @precioHora, [foto] = @foto WHERE (([idPista] = @Original_idPista) AND ([nombre] = @Original_nombre) AND ([ubicacion] = @Original_ubicacion) AND ((@IsNull_precioHora = 1 AND [precioHora] IS NULL) OR ([precioHora] = @Original_precioHora)));
-SELECT idPista, nombre, ubicacion, precioHora, foto FROM pistas WHERE (idPista = @idPista)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [pistas] SET [nombre] = @nombre, [ubicacion] = @ubicacion, [precioHora] = @precioHora, [foto] = @foto WHERE (([idPista] = @Original_idPista) AND ([nombre] = @Original_nombre) AND ([ubicacion] = @Original_ubicacion) AND ((@IsNull_precioHora = 1 AND [precioHora] IS NULL) OR ([precioHora] = @Original_precioHora)));
+SELECT idPista, nombre, ubicacion, precioHora, foto FROM pistas WHERE (idPista = @idPista) ORDER BY nombre";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ubicacion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ubicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2009,7 +2009,8 @@ SELECT idPista, nombre, ubicacion, precioHora, foto FROM pistas WHERE (idPista =
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT idPista, nombre, ubicacion, precioHora, foto FROM dbo.pistas";
+            this._commandCollection[0].CommandText = "SELECT idPista, nombre, ubicacion, precioHora, foto\r\nFROM     pistas\r\nORDER BY no" +
+                "mbre";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -2018,8 +2019,8 @@ SELECT idPista, nombre, ubicacion, precioHora, foto FROM pistas WHERE (idPista =
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idPista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT idPista, nombre, ubicacion, precioHora, foto\r\nFROM     pistas\r\nWHERE  (idP" +
-                "ista = @Param1)";
+            this._commandCollection[2].CommandText = "SELECT foto, idPista, nombre, precioHora, ubicacion FROM pistas WHERE (idPista = " +
+                "@Param1)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idPista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
@@ -3193,7 +3194,7 @@ SELECT idReserva, fecha, hora, pista, socio, pagado, cantidad FROM reservas WHER
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[socios] WHERE (([DNI] = @Original_DNI) AND ([nombre] = @Original_nombre) AND ([apellidos] = @Original_apellidos) AND ([domicilio] = @Original_domicilio) AND ([telefono] = @Original_telefono) AND ([email] = @Original_email) AND ([cuentaCorriente] = @Original_cuentaCorriente))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [socios] WHERE (([DNI] = @Original_DNI) AND ([nombre] = @Original_nombre) AND ([apellidos] = @Original_apellidos) AND ([domicilio] = @Original_domicilio) AND ([telefono] = @Original_telefono) AND ([email] = @Original_email) AND ([cuentaCorriente] = @Original_cuentaCorriente))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DNI", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DNI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3204,8 +3205,8 @@ SELECT idReserva, fecha, hora, pista, socio, pagado, cantidad FROM reservas WHER
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cuentaCorriente", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cuentaCorriente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[socios] ([DNI], [nombre], [apellidos], [domicilio], [telefono], [email], [cuentaCorriente]) VALUES (@DNI, @nombre, @apellidos, @domicilio, @telefono, @email, @cuentaCorriente);
-SELECT DNI, nombre, apellidos, domicilio, telefono, email, cuentaCorriente FROM socios WHERE (DNI = @DNI)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [socios] ([DNI], [nombre], [apellidos], [domicilio], [telefono], [email], [cuentaCorriente]) VALUES (@DNI, @nombre, @apellidos, @domicilio, @telefono, @email, @cuentaCorriente);
+SELECT DNI, nombre, apellidos, domicilio, telefono, email, cuentaCorriente FROM socios WHERE (DNI = @DNI) ORDER BY apellidos, nombre";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DNI", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DNI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3216,8 +3217,8 @@ SELECT DNI, nombre, apellidos, domicilio, telefono, email, cuentaCorriente FROM 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuentaCorriente", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cuentaCorriente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[socios] SET [DNI] = @DNI, [nombre] = @nombre, [apellidos] = @apellidos, [domicilio] = @domicilio, [telefono] = @telefono, [email] = @email, [cuentaCorriente] = @cuentaCorriente WHERE (([DNI] = @Original_DNI) AND ([nombre] = @Original_nombre) AND ([apellidos] = @Original_apellidos) AND ([domicilio] = @Original_domicilio) AND ([telefono] = @Original_telefono) AND ([email] = @Original_email) AND ([cuentaCorriente] = @Original_cuentaCorriente));
-SELECT DNI, nombre, apellidos, domicilio, telefono, email, cuentaCorriente FROM socios WHERE (DNI = @DNI)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [socios] SET [DNI] = @DNI, [nombre] = @nombre, [apellidos] = @apellidos, [domicilio] = @domicilio, [telefono] = @telefono, [email] = @email, [cuentaCorriente] = @cuentaCorriente WHERE (([DNI] = @Original_DNI) AND ([nombre] = @Original_nombre) AND ([apellidos] = @Original_apellidos) AND ([domicilio] = @Original_domicilio) AND ([telefono] = @Original_telefono) AND ([email] = @Original_email) AND ([cuentaCorriente] = @Original_cuentaCorriente));
+SELECT DNI, nombre, apellidos, domicilio, telefono, email, cuentaCorriente FROM socios WHERE (DNI = @DNI) ORDER BY apellidos, nombre";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DNI", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DNI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3248,8 +3249,8 @@ SELECT DNI, nombre, apellidos, domicilio, telefono, email, cuentaCorriente FROM 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT DNI, nombre, apellidos, domicilio, telefono, email, cuentaCorriente FROM d" +
-                "bo.socios";
+            this._commandCollection[0].CommandText = "SELECT DNI, nombre, apellidos, domicilio, telefono, email, cuentaCorriente\r\nFROM " +
+                "    socios\r\nORDER BY apellidos, nombre";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

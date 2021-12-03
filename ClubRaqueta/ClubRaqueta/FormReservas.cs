@@ -23,7 +23,6 @@ namespace ClubRaqueta
         ArrayList lista_id_pista = new ArrayList();
         ArrayList lista_dni_soc = new ArrayList();
         ArrayList lista_reservas = new ArrayList();
-        bool fech_correct = false;
         bool soc_pista_pagada = false;
         bool pista_disponible = false;
         int idPista = 0;
@@ -54,21 +53,67 @@ namespace ClubRaqueta
             cargar_dgv();
         }
 
+        /*
+         * Pinta la estructura inicial 
+         * del DataGridView
+         */
+        private void cargar_dgv()
+        {
+            this.dataSet.Reset();
+            dataSet.Tables.Add(new DataTable("Reserva"));
+            dataSet.Tables[0].Columns.Add("Fecha");
+            dataSet.Tables[0].Columns.Add("Hora");
+            dataSet.Tables[0].Columns.Add("Pista");
+            dataSet.Tables[0].Columns.Add("Pagado");
+            dataSet.Tables[0].Columns.Add("Euros");
+            dgv_reservas.DataSource = this.dataSet.Tables[0];
+        }
 
+
+        /*
+         * Carga el comboBox de socio
+         */
         private void cargar_cmb_socios()
         {
             int i;
             ds.socios.Clear();
             cmb_socios.Items.Clear();
             tabSoc.Fill(ds.socios);
+            lista_dni_soc.Clear();
 
             for (i = 0; i < ds.socios.Count; i++)
             {
-                cmb_socios.Items.Add(ds.socios[i].nombre);
+                string nom = ds.socios[i].nombre;
+                string ape = ds.socios[i].apellidos;
+                string item = ape + "," + nom;
+                cmb_socios.Items.Add(item);
                 lista_dni_soc.Add(ds.socios[i].DNI.ToString());
             }
         }
 
+        /*
+         * Carga el comboBox de pistas
+         */
+        private void cargar_cmb_pistas()
+        {
+            ds.pistas.Clear();
+            cmb_pistas.Items.Clear();
+            tabPist.Fill(ds.pistas);
+            lista_id_pista.Clear();
+
+            for (int i = 0; i < ds.pistas.Count; i++)
+            {
+                cmb_pistas.Items.Add(ds.pistas[i].nombre);
+                lista_id_pista.Add(ds.pistas[i].idPista);
+
+            }
+        }
+
+        /*
+         * Al cambiar la posicion seleccionada en el comboBox
+         * se rellenan todos los datos del socio seleccionado
+         * y se cargan todas sus reservas en el DataGridView
+         */
         private void cmb_socios_SelectedIndexChanged(object sender, EventArgs e)
         {
             tabSoc.Fill(ds.socios);
@@ -86,36 +131,22 @@ namespace ClubRaqueta
             cargar_reservas_socio();
         }
 
-        private void cargar_cmb_pistas()
-        {
-            tabPist.Fill(ds.pistas);
 
-            for (int i = 0; i < ds.pistas.Count; i++)
-            {
-                cmb_pistas.Items.Add(ds.pistas[i].nombre);
-                lista_id_pista.Add(ds.pistas[i].idPista);
-                
-            }
-        }
-
+        /*
+         * Al cambiar la posicion seleccionada
+         * se cambian los datos de la pista, 
+         * se cambia la imagen 
+         */
         private void cmb_pistas_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbl_id_pista.Text = (lista_id_pista[cmb_pistas.SelectedIndex].ToString());
             cargar_imagen_pista();
-            if (!string.IsNullOrEmpty(txt_nombre.Text))
-            {
-                if (cmb_pistas.SelectedIndex!=-1) 
-                {
-                    btn_reservar.Enabled = true;
-                    dateTimePicker_fecha.Enabled = true;
-                    numUpDownHora.Enabled = true;
-                    numUpDownMin.Enabled = true;
-
-                    
-                }
-            }
         }
 
+        /*
+         * Carga la imagen de la pista seleccionada
+         * en el comboBox 
+         */
         private void cargar_imagen_pista()
         {
             int idPista = int.Parse(lista_id_pista[cmb_pistas.SelectedIndex].ToString());
@@ -137,6 +168,11 @@ namespace ClubRaqueta
 
         }
 
+
+        /*
+         * Recargar en el DataGridView las reservas que tenga el socio
+         * que esta selecciona en el comboBox
+         */
         private void cargar_reservas_socio()
         {
             this.dataSet.Reset();
@@ -156,70 +192,77 @@ namespace ClubRaqueta
 
         }
 
-        private void cargar_dgv()
-        {
-            this.dataSet.Reset();
-            dataSet.Tables.Add(new DataTable("Reserva"));
-            dataSet.Tables[0].Columns.Add("Fecha");
-            dataSet.Tables[0].Columns.Add("Hora");
-            dataSet.Tables[0].Columns.Add("Pista");
-            dataSet.Tables[0].Columns.Add("Pagado");
-            dataSet.Tables[0].Columns.Add("Euros");
-            dgv_reservas.DataSource = this.dataSet.Tables[0];
-        }
 
-        private void dateTimePicker_fecha_ValueChanged(object sender, EventArgs e)
-        {
-            var fech_actual = DateTime.Today;
-            var fech_select = dateTimePicker_fecha.Value;
-
-
-            if (fech_select.CompareTo(fech_actual) < 0)
-            {
-                MessageBox.Show("La fecha es anterior a la actual", "Fecha", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                fech_correct = false;
-            }
-            else
-            {
-                fech_correct = true;
-            }
-        }
-
+        /*
+         * Boton pagar reserva pendiente
+         */
         private void btn_pagar_Click(object sender, EventArgs e)
         {
             check_pagar_reserva();
         }
 
+        /*
+         * Paga la reserva y recarga el DatGridView
+         */
         private void check_pagar_reserva()
         {
-            //FALLO SI EL SOCIO NO TIENE NI UNA SOLA RESERVA
-
             //PAGAR AQUI
             int pist = int.Parse(dgv_reservas.SelectedRows[0].Cells["Pista"].Value.ToString());
             String horaOrig = dgv_reservas.SelectedRows[0].Cells["Hora"].Value.ToString();
             String fechaOrig = dgv_reservas.SelectedRows[0].Cells["Fecha"].Value.ToString();
 
-            tabReser.UpdateReservaPago("Si",fechaOrig,horaOrig,pist);
+            tabReser.UpdateReservaPago("Si", fechaOrig, horaOrig, pist);
             cargar_reservas_socio();
-            
 
         }
 
+        /*
+         * Habilitan el boton reservar
+         */
+        private void lbl_dni_soc_TextChanged(object sender, EventArgs e)
+        {
+            if (lbl_id_pista.Text.ToString() != "")
+            {
+                btn_reservar.Enabled = true;
+            }
+        }
+
+        /*
+         * Habilitan el boton reservar
+         */
+        private void lbl_id_pista_TextChanged(object sender, EventArgs e)
+        {
+            if (lbl_dni_soc.Text.ToString() != "")
+            {
+                btn_reservar.Enabled = true;
+            }
+        }
+
+        /*
+         * Boton para reservar pista
+         */
         private void btn_reservar_Click(object sender, EventArgs e)
         {
-
-            if (!check_reservas_sin_pagar()) 
+            //compureba que el socio no tenga niguna reserva sin pagar
+            if (!check_reservas_sin_pagar())
             {
                 MessageBox.Show("El socio debe el pago de una pista anterior", "Error al reservar", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else 
+            else
             {
+                //comprueba si la pista esta disponible
                 check_pista_disponible();
+                //realiza la reserva
                 check_reservas();
             }
-            
+
         }
+
+        /*
+         * Mensaje emergente de confirmacion de la reserva
+         * Calcula el precio y la insertar en la BD
+         */
 
         private void check_reservas()
         {
@@ -228,9 +271,6 @@ namespace ClubRaqueta
                 DialogResult d_result = MessageBox.Show("¿Quieres alquilarla la pista?", "Alquilar Pista", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (d_result == DialogResult.Yes)
                 {
-
-                    tabPist.FillByIdPista(ds.pistas, int.Parse(lista_id_pista[cmb_pistas.SelectedIndex].ToString()));
-
                     //Calculamos el precio
                     int precioHora = int.Parse(ds.pistas[0].precioHora.ToString());
                     decimal precio = (decimal)(precioHora * 1.5);
@@ -245,11 +285,13 @@ namespace ClubRaqueta
         }
 
 
-        //COMPRUEBA SI EL SOCIO TIENE RESERVAS SIN PAGAR
+        /*
+         * Comprueba si el socio tiene reservas sin pagar
+         */
         private bool check_reservas_sin_pagar()
         {
             string id = lbl_dni_soc.Text.ToString();
-            tabReser.FillByIdSocio(ds.reservas,id);
+            tabReser.FillByIdSocio(ds.reservas, id);
             for (int i = 0; i < ds.reservas.Count; i++)
             {
                 if (ds.reservas[i].pagado.Equals("No"))
@@ -266,7 +308,10 @@ namespace ClubRaqueta
             return true;
         }
 
-        //COMPRUEBA SI LA PISTA ESTA ALQUILADA ESE DIA
+       /*
+        * Comprueba si la pista que se quiere reservar
+        * esta alquilada en la fecha seleccionada
+        */
         private void check_pista_disponible()
         {
             string h = numUpDownHora.Value.ToString() + ":" + numUpDownMin.Value.ToString();
@@ -306,7 +351,9 @@ namespace ClubRaqueta
 
         }
 
-        //COMPRUEBA EL INTERRVALO DE HORA
+        /*
+         * Comprueba el intervalo de hora
+         */
         private bool check_intervalo_hora(TimeSpan horaBD, TimeSpan horaReserva)
         {
             bool correcto;
@@ -336,6 +383,12 @@ namespace ClubRaqueta
         }
 
 
+        /*
+         * Habilita el boron pagar
+         * segun la fila seleccionada del DataGridView
+         * POR ALGUN MOTIVO , A VECES NO LO PILLA BIEN 
+         * Y HAY QUE HACER CLIC EN LA CABECERA DEL DGV
+         */
 
         private void dgv_reservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -354,20 +407,10 @@ namespace ClubRaqueta
             }
         }
 
-        private void lbl_dni_soc_TextChanged(object sender, EventArgs e)
+        private void btn_refrescar_Click(object sender, EventArgs e)
         {
-            if (lbl_id_pista.Text.ToString() != "") 
-            {
-                btn_reservar.Enabled = true;
-            }
-        }
-
-        private void lbl_id_pista_TextChanged(object sender, EventArgs e)
-        {
-            if (lbl_dni_soc.Text.ToString() != "")
-            {
-                btn_reservar.Enabled = true;
-            }
+            cargar_cmb_pistas();
+            cargar_cmb_socios();
         }
     }
 }
