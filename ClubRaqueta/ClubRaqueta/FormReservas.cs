@@ -407,6 +407,12 @@ namespace ClubRaqueta
             }
         }
 
+        /*
+         * Boton AÑADIDO
+         * Para refresercar los datos
+         * en caso de que se modificasen en 
+         * el formulario de pistas o el de socios
+         */
         private void btn_refrescar_Click(object sender, EventArgs e)
         {
             cargar_cmb_pistas();
