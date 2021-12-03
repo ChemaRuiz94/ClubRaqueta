@@ -63,7 +63,7 @@ namespace ClubRaqueta
             this.dgv_socios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_socios.Size = new System.Drawing.Size(878, 173);
             this.dgv_socios.TabIndex = 0;
-            this.dgv_socios.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_socios_CellContentDoubleClick);
+            this.dgv_socios.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_socios_CellMouseDoubleClick);
             // 
             // txt_dni
             // 

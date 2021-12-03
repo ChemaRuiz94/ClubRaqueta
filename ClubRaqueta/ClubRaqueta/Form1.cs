@@ -12,24 +12,42 @@ namespace ClubRaqueta
 {
     public partial class frm_principal : Form
     {
+       
+        FormReservas frmReserv = new FormReservas();
         public frm_principal()
         {
             InitializeComponent();
         }
 
+        /*
+         * Carga dentro de este formulario el formulario Reservas como hijo
+         */
         private void frm_principal_Load(object sender, EventArgs e)
         {
-            FormReservas frm_reservas = new FormReservas();
-            frm_reservas.MdiParent = this;
-            frm_reservas.FormBorderStyle = FormBorderStyle.None;
-            frm_reservas.Dock = DockStyle.Fill;
-            frm_reservas.Show();
+            frmReserv.MdiParent = this;
+            frmReserv.FormBorderStyle = FormBorderStyle.None;
+            frmReserv.Dock = DockStyle.Fill;
+            frmReserv.Show();
         }
 
+        /*
+         * Abre de forma Modal el formulario de de administracion de pistas
+         * al cerrar ese formulario, se refresca el formulario reservas
+         */
         private void tls_menu_pistas_Click_1(object sender, EventArgs e)
         {
-            FormPistas frm_pistas = new FormPistas();
-            frm_pistas.ShowDialog();
+            try
+            {
+                FormPistas frm_pistas = new FormPistas();
+                
+                if (frm_pistas.ShowDialog() == DialogResult.Cancel) 
+                {
+                    frmReserv.refrescar();
+                }
+            }catch (Exception E) 
+            {
+                Console.WriteLine(e);
+            }
             
         }
 
@@ -46,23 +64,28 @@ namespace ClubRaqueta
             }
         }
 
-        //private void tls_menu_reservas_Click(object sender, EventArgs e)
-        //{
 
-        //    FormReservas frm_reservas = new FormReservas();
-        //    frm_reservas.MdiParent = this;
-        //    frm_reservas.FormBorderStyle = FormBorderStyle.None;
-        //    frm_reservas.Dock = DockStyle.Fill;
-        //    frm_reservas.Show();
-
-        //}
-
+        /*
+        * Abre de forma Modal el formulario de de administracion de socios
+        * al cerrar ese formulario, se refresca el formulario reservas
+        */
         private void tls_menu_socios_Click(object sender, EventArgs e)
         {
-            FormSocios frm_soc = new FormSocios();
-            frm_soc.ShowDialog();
+            try
+            {
+                FormSocios frm_soc = new FormSocios();
+                
+                if (frm_soc.ShowDialog() == DialogResult.Cancel)
+                {
+                   
+                    frmReserv.refrescar();
+                }
+            }
+            catch (Exception E)
+            {
+                Console.WriteLine(e);
+            }
         }
 
-       
     }
 }

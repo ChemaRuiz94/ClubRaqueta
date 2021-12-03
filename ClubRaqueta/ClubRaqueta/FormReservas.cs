@@ -32,8 +32,6 @@ namespace ClubRaqueta
         public FormReservas()
         {
             InitializeComponent();
-
-
         }
 
         private void FormReservas_Load(object sender, EventArgs e)
@@ -52,6 +50,7 @@ namespace ClubRaqueta
 
             cargar_dgv();
         }
+
 
         /*
          * Pinta la estructura inicial 
@@ -207,12 +206,20 @@ namespace ClubRaqueta
         private void check_pagar_reserva()
         {
             //PAGAR AQUI
-            int pist = int.Parse(dgv_reservas.SelectedRows[0].Cells["Pista"].Value.ToString());
-            String horaOrig = dgv_reservas.SelectedRows[0].Cells["Hora"].Value.ToString();
-            String fechaOrig = dgv_reservas.SelectedRows[0].Cells["Fecha"].Value.ToString();
+            if (!lbl_dni_soc.Text.ToString().Equals(""))
+            {
+                int pist = int.Parse(dgv_reservas.SelectedRows[0].Cells["Pista"].Value.ToString());
+                String horaOrig = dgv_reservas.SelectedRows[0].Cells["Hora"].Value.ToString();
+                String fechaOrig = dgv_reservas.SelectedRows[0].Cells["Fecha"].Value.ToString();
 
-            tabReser.UpdateReservaPago("Si", fechaOrig, horaOrig, pist);
-            cargar_reservas_socio();
+                tabReser.UpdateReservaPago("Si", fechaOrig, horaOrig, pist);
+                cargar_reservas_socio();
+            }
+            else 
+            {
+                MessageBox.Show("Asegurese de tener un socio seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
@@ -384,39 +391,50 @@ namespace ClubRaqueta
 
 
         /*
-         * Habilita el boron pagar
+         * Metodo para refresca, que es llamado publicamente
+         * al cerrar el formulario de pistas o el de socios
+         * SE HA DECIDIDO ASI PARA  EVITAR PROBLEMAS EN CASO DE ELIMINAR O MODIFICAR
+         * ALGUN DATO QUE ESTUVIERA PINTADO EN ESE MOMENTO ESTE FORMULARIO
+         */
+        public void refrescar() 
+        {
+            
+            cargar_cmb_pistas();
+            cargar_cmb_socios();
+
+            txt_nombre.Text = "";
+            txt_apellidos.Text = "";
+            txt_direccion.Text = "";
+            msk_txt_telefono.Text = "";
+            msk_txt_cuenta_corriente.Text = "";
+            txt_email.Text = "";
+            lbl_dni_soc.Text = "";
+
+            lbl_id_pista.Text = "";
+            btn_reservar.Enabled = false;
+        }
+
+        /*
+         * Habilita el boton pagar
          * segun la fila seleccionada del DataGridView
          * POR ALGUN MOTIVO , A VECES NO LO PILLA BIEN 
          * Y HAY QUE HACER CLIC EN LA CABECERA DEL DGV
          */
-
-        private void dgv_reservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_reservas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             String pagadoSeleccionada = dgv_reservas.SelectedRows[0].Cells["Pagado"].Value.ToString();
             if (pagadoSeleccionada.Equals("No"))
             {
-                //pagar_reserva_pendiente = true;
+                ;
                 btn_pagar.Enabled = true;
                 //btn_pagar.Visible = true;
             }
             else
             {
-                //pagar_reserva_pendiente = false;
+                
                 btn_pagar.Enabled = false;
                 //btn_pagar.Visible = false;
             }
-        }
-
-        /*
-         * Boton AÑADIDO
-         * Para refresercar los datos
-         * en caso de que se modificasen en 
-         * el formulario de pistas o el de socios
-         */
-        private void btn_refrescar_Click(object sender, EventArgs e)
-        {
-            cargar_cmb_pistas();
-            cargar_cmb_socios();
         }
     }
 }

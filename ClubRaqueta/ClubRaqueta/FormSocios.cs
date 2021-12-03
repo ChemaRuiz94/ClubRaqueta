@@ -71,22 +71,6 @@ namespace ClubRaqueta
         }
 
 
-        /*
-         * Al hacer doble click en una fila
-         * se rellenan automaticamente toodos los campos con los datos
-         * del socio seleccionado 
-         * 
-         */
-        private void dgv_socios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_dni.Text = (dgv_socios.SelectedRows[0].Cells["DNI"].Value.ToString());
-            txt_nombre.Text = (dgv_socios.SelectedRows[0].Cells["NOMBRE"].Value.ToString());
-            txt_ape.Text = (dgv_socios.SelectedRows[0].Cells["APELLIDOS"].Value.ToString());
-            txt_domic.Text = (dgv_socios.SelectedRows[0].Cells["DOMICILIO"].Value.ToString());
-            msk_txt_telef.Text = (dgv_socios.SelectedRows[0].Cells["TELEFONO"].Value.ToString());
-            txt_email.Text = (dgv_socios.SelectedRows[0].Cells["EMAIL"].Value.ToString());
-            msk_txt_ccc.Text = (dgv_socios.SelectedRows[0].Cells["CCC"].Value.ToString());
-        }
 
         private void btn_mostrar_Click(object sender, EventArgs e)
         {
@@ -134,7 +118,7 @@ namespace ClubRaqueta
         }
 
 
-        /**
+        /*
          * Boton para modificar un socio
          */
         private void btn_modificar_Click(object sender, EventArgs e)
@@ -169,7 +153,7 @@ namespace ClubRaqueta
             }
         }
 
-        /**
+        /*
          * Boton para eliminar un socio
          * Comprueba que no tenga reservas
          * pide un mensaje de confirmacion
@@ -195,6 +179,7 @@ namespace ClubRaqueta
                             MessageBox.Show("Socio eliminado correctamente");
 
                             mostrar_socios_dgv();
+                            limpiar_campos();
                         }
                     }
                     
@@ -259,7 +244,7 @@ namespace ClubRaqueta
 
         /*
          * Comrpueba si el dni del socio existe en la BD
-         * devuelve true si existe
+         * devuelve true en caso de que si tenga
          */
         private bool check_socio_dni(String dni)
         {
@@ -279,6 +264,10 @@ namespace ClubRaqueta
         }
 
 
+        /*
+         * Comprueba si el socio tiene reservas en la BD
+         * devuelve true si es asi
+         */
 
         private bool check_socio_reservas(String dni)
         {
@@ -297,7 +286,15 @@ namespace ClubRaqueta
             return false;
         }
 
+        /*
+         * Limpia los campos de texto
+         */
         private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            limpiar_campos();
+        }
+
+        private void limpiar_campos() 
         {
             txt_dni.Text = "";
             txt_nombre.Text = "";
@@ -306,6 +303,24 @@ namespace ClubRaqueta
             msk_txt_telef.Text = "";
             txt_email.Text = "";
             msk_txt_ccc.Text = "";
+        }
+
+
+        /*
+         * Al hacer doble click en una fila
+         * se rellenan automaticamente toodos los campos con los datos
+         * del socio seleccionado 
+         * 
+         */
+        private void dgv_socios_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            txt_dni.Text = (dgv_socios.SelectedRows[0].Cells["DNI"].Value.ToString());
+            txt_nombre.Text = (dgv_socios.SelectedRows[0].Cells["NOMBRE"].Value.ToString());
+            txt_ape.Text = (dgv_socios.SelectedRows[0].Cells["APELLIDOS"].Value.ToString());
+            txt_domic.Text = (dgv_socios.SelectedRows[0].Cells["DOMICILIO"].Value.ToString());
+            msk_txt_telef.Text = (dgv_socios.SelectedRows[0].Cells["TELEFONO"].Value.ToString());
+            txt_email.Text = (dgv_socios.SelectedRows[0].Cells["EMAIL"].Value.ToString());
+            msk_txt_ccc.Text = (dgv_socios.SelectedRows[0].Cells["CCC"].Value.ToString());
         }
     }
 }

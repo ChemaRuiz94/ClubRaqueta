@@ -67,14 +67,18 @@ namespace ClubRaqueta
             // tls_menu_socios
             // 
             this.tls_menu_socios.Name = "tls_menu_socios";
-            this.tls_menu_socios.Size = new System.Drawing.Size(136, 26);
+            this.tls_menu_socios.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.S)));
+            this.tls_menu_socios.Size = new System.Drawing.Size(224, 26);
             this.tls_menu_socios.Text = "Socios";
             this.tls_menu_socios.Click += new System.EventHandler(this.tls_menu_socios_Click);
             // 
             // tls_menu_pistas
             // 
             this.tls_menu_pistas.Name = "tls_menu_pistas";
-            this.tls_menu_pistas.Size = new System.Drawing.Size(136, 26);
+            this.tls_menu_pistas.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.P)));
+            this.tls_menu_pistas.Size = new System.Drawing.Size(224, 26);
             this.tls_menu_pistas.Text = "Pistas";
             this.tls_menu_pistas.Click += new System.EventHandler(this.tls_menu_pistas_Click_1);
             // 

@@ -64,7 +64,6 @@ namespace ClubRaqueta
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_pagar = new System.Windows.Forms.Button();
             this.dgv_reservas = new System.Windows.Forms.DataGridView();
-            this.btn_refrescar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPista)).BeginInit();
@@ -410,7 +409,6 @@ namespace ClubRaqueta
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel3.Controls.Add(this.btn_refrescar);
             this.panel3.Controls.Add(this.btn_pagar);
             this.panel3.Controls.Add(this.dgv_reservas);
             this.panel3.Location = new System.Drawing.Point(13, 468);
@@ -441,17 +439,7 @@ namespace ClubRaqueta
             this.dgv_reservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_reservas.Size = new System.Drawing.Size(879, 157);
             this.dgv_reservas.TabIndex = 0;
-            this.dgv_reservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reservas_CellContentClick);
-            // 
-            // btn_refrescar
-            // 
-            this.btn_refrescar.Location = new System.Drawing.Point(15, 191);
-            this.btn_refrescar.Name = "btn_refrescar";
-            this.btn_refrescar.Size = new System.Drawing.Size(125, 45);
-            this.btn_refrescar.TabIndex = 2;
-            this.btn_refrescar.Text = "REFRESCAR DATOS";
-            this.btn_refrescar.UseVisualStyleBackColor = true;
-            this.btn_refrescar.Click += new System.EventHandler(this.btn_refrescar_Click);
+            this.dgv_reservas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reservas_CellClick);
             // 
             // FormReservas
             // 
@@ -520,6 +508,5 @@ namespace ClubRaqueta
         private System.Windows.Forms.Button btn_pagar;
         private System.Windows.Forms.Label lbl_id_pista;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btn_refrescar;
     }
 }
