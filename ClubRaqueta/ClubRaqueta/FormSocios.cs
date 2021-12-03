@@ -26,7 +26,10 @@ namespace ClubRaqueta
         }
 
 
-
+        /*
+         * Pinta la estructura inicial 
+         * del DataGridView
+         */
         private void cargar_dgv()
         {
             this.dataSet.Reset();
@@ -42,6 +45,11 @@ namespace ClubRaqueta
 
 
         }
+
+        /*
+         * Rellena el DataGridView
+         * con todos los socios
+         */
 
         private void mostrar_socios_dgv()
         {
@@ -63,6 +71,12 @@ namespace ClubRaqueta
         }
 
 
+        /*
+         * Al hacer doble click en una fila
+         * se rellenan automaticamente toodos los campos con los datos
+         * del socio seleccionado 
+         * 
+         */
         private void dgv_socios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             txt_dni.Text = (dgv_socios.SelectedRows[0].Cells["DNI"].Value.ToString());
@@ -80,7 +94,9 @@ namespace ClubRaqueta
         }
 
 
-
+        /*
+         * Boton para insertar socio en la BD
+         */
         private void btn_insertar_Click(object sender, EventArgs e)
         {
             if (check_txt_campos())
@@ -99,9 +115,11 @@ namespace ClubRaqueta
                         objSoc.email = txt_email.Text.ToString().Trim();
                         objSoc.cuentaCorriente = msk_txt_ccc.Text.ToString().Trim();
 
+                        //insertamos al socio
                         objBD.socios.Add(objSoc);
                         objBD.SaveChanges();
 
+                        //refrescamos el dgv
                         mostrar_socios_dgv();
                         MessageBox.Show("Socio añadido");
                     }
@@ -116,7 +134,9 @@ namespace ClubRaqueta
         }
 
 
-
+        /**
+         * Boton para modificar un socio
+         */
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             if (check_txt_campos())
@@ -149,13 +169,20 @@ namespace ClubRaqueta
             }
         }
 
+        /**
+         * Boton para eliminar un socio
+         * Comprueba que no tenga reservas
+         * pide un mensaje de confirmacion
+         */
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             String dni = txt_dni.Text.ToString();
             if (check_socio_dni(dni))
             {
+                //comprobamos que el socio no tenga reservas
                 if (!check_socio_reservas(dni))
                 {
+                    //mensaje de confirmacion
                     DialogResult d_result = MessageBox.Show("¿Desea eliminar a este socio?", "Eliminar Socio", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (d_result == DialogResult.Yes)
                     {
@@ -163,7 +190,7 @@ namespace ClubRaqueta
                         {
                             socios socio = objBD.socios.Find(dni);
                             objBD.socios.Remove(socio);
-
+                            //eliminamos el socio y guardamos
                             objBD.SaveChanges();
                             MessageBox.Show("Socio eliminado correctamente");
 
@@ -185,7 +212,11 @@ namespace ClubRaqueta
             }
         }
 
-
+        /*
+         * Comprueba que los campos esten 
+         * correctamente rellenos
+         * devuelve true si es asi
+         */
         private bool check_txt_campos()
         {
             if (txt_dni.Text.ToString().Trim().Equals(""))
@@ -226,6 +257,10 @@ namespace ClubRaqueta
             return true;
         }
 
+        /*
+         * Comrpueba si el dni del socio existe en la BD
+         * devuelve true si existe
+         */
         private bool check_socio_dni(String dni)
         {
             using (clubraquetaEntities objBD = new clubraquetaEntities())
@@ -260,6 +295,17 @@ namespace ClubRaqueta
             }
 
             return false;
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            txt_dni.Text = "";
+            txt_nombre.Text = "";
+            txt_ape.Text = "";
+            txt_domic.Text = "";
+            msk_txt_telef.Text = "";
+            txt_email.Text = "";
+            msk_txt_ccc.Text = "";
         }
     }
 }
